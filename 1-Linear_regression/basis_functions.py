@@ -1,3 +1,4 @@
+# file: I_1/basis_functions.py
 import numpy as np
 
 def poly_basis(x, d, sigma):
@@ -24,3 +25,10 @@ def exp_basis(x, d, sigma):
 		mu_i = i / (d+1)
 		phi[i] = np.exp( - np.abs(x-mu_i)**2 / sigma**2 )
 	return phi
+
+def Phi_gen(X, basis, d, sigma):
+	n = X.size
+	Phi = np.empty(shape=(n,d,))
+	for i in range(n):
+		Phi[i,:] = basis(X[i], d, sigma)
+	return Phi
