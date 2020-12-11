@@ -59,7 +59,6 @@ d__z = d__phi * d__y_curr
 # at which iterations do we want to plot
 d__plot_at_iter = \
 	np.sort([pd__n - i*(pd__n//pd__no_plots) for i in range(pd__no_plots)])
-print(f'Plotting at iterations {d__plot_at_iter}')
 
 # save the Yi vectors we want to plot
 d__Y_FIT = np.empty(0)
@@ -94,7 +93,7 @@ e__X = np.random.uniform(0., 1., pe__n)
 e__Y = np.array([f(x)+np.random.standard_normal() for x in e__X])
 
 e__Phi     = Phi_gen(e__X, b__chosen_basis, pb__d, pb__sigma)
-e__c_theta = Phi.T .dot(pseudoinverse(Phi.dot(Phi.T))) .dot(e__Y)
+e__c_theta = e__Phi.T .dot(pseudoinverse(e__Phi.dot(e__Phi.T))) .dot(e__Y)
 #  e__c_theta = e__Phi.T .dot(np.linalg.pinv(e__Phi.dot(e__Phi.T))) .dot(e__Y)
 e__Y_FIT   = e__Phi .dot(e__c_theta)
 
@@ -116,7 +115,7 @@ plt.scatter(a__X, c__Y_FIT, label=f'LS estimate with QR decomp (using {pb__basis
 
 plt.legend(loc=loc)
 plt.grid()
-#  plt.savefig('ex_I_1_plots_1.pdf')
+#  plt.savefig('../figures/ex_I_1_plots_1.pdf')
 #  plt.show()
 plt.close()
 # }}}
@@ -132,7 +131,7 @@ for i, j in enumerate(d__plot_at_iter):
 		label=f'Recursive LS after {j} samples', color='blue', s=s)
 	ax[i].legend(loc=loc)
 	ax[i].grid()
-#  plt.savefig(f'ex_I_1_plots_2_{i+1}.pdf')
+#  plt.savefig('../figures/ex_I_1_plots_2.pdf')
 #  plt.show()
 plt.close()
 # }}}
@@ -145,8 +144,8 @@ plt.scatter(a__X, b__Y_FIT, label=f'LN estimate (using {pb__basis} basis)', colo
 
 plt.legend(loc=loc)
 plt.grid()
-#  plt.savefig('ex_I_1_plots_3.pdf')
-plt.show()
+#  plt.savefig('../figures/ex_I_1_plots_3.pdf')
+#  plt.show()
 plt.close()
 # }}}
 
