@@ -118,7 +118,7 @@ plt.grid()
 plt.xlabel('$x_i$, sample input')
 plt.ylabel('')
 #  plt.savefig('../figures/ex_I_1_plots_1.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 # }}}
 
