@@ -27,9 +27,9 @@ b__chosen_basis = b__basis_fns[pb__basis]
 
 b__Phi = Phi_gen(a__X, b__chosen_basis, pb__d, pb__sigma)
 
-# c_ means cap/optimal
-b__c_Theta = inv(b__Phi.T .dot(b__Phi)) .dot(b__Phi.T) .dot(a__Y)
-b__Y_FIT = b__Phi.dot(b__c_Theta)
+# h_ means hat/optimal
+b__h_Theta = inv(b__Phi.T .dot(b__Phi)) .dot(b__Phi.T) .dot(a__Y)
+b__Y_FIT = b__Phi.dot(b__h_Theta)
 
 ## }}}
 
@@ -37,8 +37,8 @@ b__Y_FIT = b__Phi.dot(b__c_Theta)
 ## c) LS estimate using QR decomp {{{
 
 c__Q, c__R = qr(b__Phi, mode='economic')
-c__c_Theta = inv(c__R) .dot(c__Q.T) .dot(a__Y)
-c__Y_FIT = b__Phi.dot(c__c_Theta)
+c__h_Theta = inv(c__R) .dot(c__Q.T) .dot(a__Y)
+c__Y_FIT = b__Phi.dot(c__h_Theta)
 
 ## }}}
 
@@ -71,17 +71,17 @@ for i, (d__x_curr, d__y_curr) in enumerate(zip(d__X, d__Y)):
 
 	if (i in d__plot_at_iter):
 
-		# for speed, only calculate c_theta_REC when needed
+		# for speed, only calculate h_theta_REC when needed
 		if (pd__use_SMF): # Sherman-Morrison Formula
 			d__Psi_inv = inv(d__Psi)
 			d__SMF = d__Psi_inv - (d__Psi_inv .dot(np.outer(d__phi, d__phi)) .dot(d__Psi_inv)) / \
 				(1 + (d__phi .dot(d__Psi_inv) .dot(d__phi)))
-			d__c_theta = d__SMF .dot( d__z + d__phi .dot(d__Y[i]) )
+			d__h_theta = d__SMF .dot( d__z + d__phi .dot(d__Y[i]) )
 		else:
-			d__c_theta = inv(d__Psi + np.outer(d__phi, d__phi)) .dot( d__z + d__phi * d__y_curr )
+			d__h_theta = inv(d__Psi + np.outer(d__phi, d__phi)) .dot( d__z + d__phi * d__y_curr )
 
 		d__Y_FIT_curr = Phi_gen(np.linspace(0, 1, pd__fitted_points_to_show), \
-			b__chosen_basis, pb__d, pb__sigma) .dot(d__c_theta)
+			b__chosen_basis, pb__d, pb__sigma) .dot(d__h_theta)
 		d__Y_FIT = np.append(d__Y_FIT, d__Y_FIT_curr)
 
 ## }}}
@@ -93,9 +93,9 @@ e__X = np.random.uniform(0., 1., pe__n)
 e__Y = np.array([f(x)+np.random.standard_normal() for x in e__X])
 
 e__Phi     = Phi_gen(e__X, b__chosen_basis, pb__d, pb__sigma)
-e__c_theta = e__Phi.T .dot(pseudoinverse(e__Phi.dot(e__Phi.T))) .dot(e__Y)
-#  e__c_theta = e__Phi.T .dot(np.linalg.pinv(e__Phi.dot(e__Phi.T))) .dot(e__Y)
-e__Y_FIT   = e__Phi .dot(e__c_theta)
+e__h_theta = e__Phi.T .dot(pseudoinverse(e__Phi.dot(e__Phi.T))) .dot(e__Y)
+#  e__h_theta = e__Phi.T .dot(np.linalg.pinv(e__Phi.dot(e__Phi.T))) .dot(e__Y)
+e__Y_FIT   = e__Phi .dot(e__h_theta)
 
 ## }}}
 
@@ -107,7 +107,7 @@ loc = 1 # legend location
 
 # b) and c) subex {{{
 # Sample
-plt.scatter(a__X, a__Y, label='Sample (y = cxsin(cx) + e)', color='red', s=s)
+plt.scatter(a__X, a__Y, label='Sample ($y = cx\\sin(cx) + \\epsilon$)', color='red', s=s)
 # LS estimate
 plt.scatter(a__X, b__Y_FIT, label=f'LS estimate (using {pb__basis} basis)', color='blue', s=s)
 # LS estimate
@@ -115,6 +115,8 @@ plt.scatter(a__X, c__Y_FIT, label=f'LS estimate with QR decomp (using {pb__basis
 
 plt.legend(loc=loc)
 plt.grid()
+plt.xlabel('$x_i$, sample input')
+plt.ylabel('')
 #  plt.savefig('../figures/ex_I_1_plots_1.pdf')
 #  plt.show()
 plt.close()
@@ -132,20 +134,22 @@ for i, j in enumerate(d__plot_at_iter):
 	ax[i].legend(loc=loc)
 	ax[i].grid()
 #  plt.savefig('../figures/ex_I_1_plots_2.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 # }}}
 
 # e) subex {{{
 # Sample
-plt.scatter(a__X, a__Y, label='Sample (y = cxsin(cx) + e)', color='red', s=s)
+plt.scatter(a__X, a__Y, label='Sample ($y = cx\\sin(cx) + \\epsilon$)', color='red', s=s)
 # LS estimate
 plt.scatter(a__X, b__Y_FIT, label=f'LN estimate (using {pb__basis} basis)', color='blue', s=s)
 
 plt.legend(loc=loc)
 plt.grid()
+plt.xlabel('$x_i$, sample input')
+plt.ylabel('')
 #  plt.savefig('../figures/ex_I_1_plots_3.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 # }}}
 
