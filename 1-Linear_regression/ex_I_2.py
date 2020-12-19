@@ -117,7 +117,7 @@ plt.xlabel('$\\Delta t$ Time step')
 plt.ylabel('$y_t$ values')
 plt.grid()
 #  plt.savefig('../figures/ex_I_2_plots_1.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 
 plt.scatter([s_theta[0]], [s_theta[1]], color='black')
@@ -130,7 +130,7 @@ plt.xlabel('$\\hat{\\theta}_1$')
 plt.ylabel('$\\hat{\\theta}_2$')
 plt.legend()
 plt.grid()
-plt.savefig('../figures/ex_I_2_plots_2.pdf')
+#  plt.savefig('../figures/ex_I_2_plots_2.pdf')
 plt.show()
 
 ## }}}
