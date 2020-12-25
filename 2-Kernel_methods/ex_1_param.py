@@ -1,4 +1,4 @@
-# file: I_1/ex_I_1_parameters.py
+# file: II_1/ex_II_1_parameters.py
 
 from numpy import array
 

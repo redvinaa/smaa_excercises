@@ -5,7 +5,7 @@ import numpy as np
 from scipy.linalg import qr, inv
 import cvxpy as cp
 import matplotlib.pyplot as plt
-from ex_II_1_parameters import *
+from ex_1_param import *
 
 
 ## a) Sample generation {{{
@@ -27,11 +27,7 @@ for i in range(3): # i: dataset idx
 	for j, c in enumerate(a__class): # j: a__class[j]
 		if c == 1:
 			a__points[i][j] = np.random.multivariate_normal(p__m_a[i], p__cov_a[i])
-			a__points[i][j] = np.random.multivariate_normal(p__m_a[i], p__cov_a[i])
-			a__points[i][j] = np.random.multivariate_normal(p__m_a[i], p__cov_a[i])
 		else:
-			a__points[i][j] = np.random.multivariate_normal(p__m_b[i], p__cov_b[i])
-			a__points[i][j] = np.random.multivariate_normal(p__m_b[i], p__cov_b[i])
 			a__points[i][j] = np.random.multivariate_normal(p__m_b[i], p__cov_b[i])
 
 ## }}}
@@ -218,7 +214,7 @@ for i in range(3):
 	fig.set_size_inches((20, 10), forward=False)
 	#  fig.savefig(f'../figures/ex_II_1_plots_{i}.pdf')
 
-	#  plt.show()
+	plt.show()
 	plt.close()
 # }}}
 
