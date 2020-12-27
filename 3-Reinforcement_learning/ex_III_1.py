@@ -73,6 +73,10 @@ for i in range(p__iter):
 			ax[i//p__plot_every, 2].matshow(np.flip(policy_greedy.reshape(p__nrows, p__ncols), axis=0))
 			ax[i//p__plot_every, 2].set_title(f'Greedy policy after {i+1} iterations')
 
+
+fig = plt.gcf()
+fig.set_size_inches((20, 10), forward=False)
+#  fig.savefig('../figures/ex_III_1_plots_1.pdf')
 plt.show()
 
 
