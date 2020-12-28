@@ -70,7 +70,7 @@ V_LP = lambd.value
 scene = np.flip(V_LP.reshape(p__nrows, p__ncols), axis=0)
 plt.imshow(scene, cmap='Greys', norm=Normalize())
 #  plt.savefig('../figures/ex_III_1_plots_1.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 
 ## }}}
@@ -108,8 +108,8 @@ for i in range(p__iter):
 		idx += 1
 
 plt.tight_layout()
-plt.savefig('../figures/ex_III_1_plots_1.pdf')
-#  plt.show()
+#  plt.savefig('../figures/ex_III_1_plots_1.pdf')
+plt.show()
 plt.close()
 
 ## }}}
@@ -151,8 +151,8 @@ for i in range(p__iter):
 		idx += 1
 
 plt.tight_layout()
-plt.savefig('../figures/ex_III_1_plots_2.pdf')
-#  plt.show()
+#  plt.savefig('../figures/ex_III_1_plots_2.pdf')
+plt.show()
 plt.close()
 
 ## }}}
@@ -164,8 +164,8 @@ plt.plot(np.linspace(1, p__iter+1, p__iter), dist_VI, label='Value Iteration')
 plt.plot(np.linspace(1, p__iter+1, p__iter), dist_PI, label='Policy Iteration')
 plt.legend()
 plt.grid()
-plt.savefig('../figures/ex_III_1_plots_3.pdf')
-#  plt.show()
+#  plt.savefig('../figures/ex_III_1_plots_3.pdf')
+plt.show()
 plt.close()
 
 ## }}}
