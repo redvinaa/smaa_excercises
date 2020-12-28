@@ -35,26 +35,18 @@ class CliffWalkingEnv(gym.Env):
 	def step(self, action):
 		new_state = deepcopy(self.current_state)
 
-		reward = -1.0
 		if action == 0: #right
-			if new_state[1]+1 > self.cols-1:
-				reward = -10
 			new_state[1] = min(new_state[1]+1, self.cols-1)
 		elif action == 1: #down
-			if new_state[0]-1 < 0:
-				reward = -10
 			new_state[0] = max(new_state[0]-1, 0)
 		elif action == 2: #left
-			if new_state[1]-1 < 0:
-				reward = -10
 			new_state[1] = max(new_state[1]-1, 0)
 		elif action == 3: #up
-			if new_state[0]+1 > self.rows-1:
-				reward = -10
 			new_state[0] = min(new_state[0]+1, self.rows-1)
 		else:
 			raise Exception("Invalid action.")
 		self.current_state = new_state
+		reward = -1.0
 
 		is_terminal = False
 		if self.current_state[0] == 0 and self.current_state[1] > 0:

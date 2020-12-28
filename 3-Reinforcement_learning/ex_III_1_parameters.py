@@ -6,8 +6,6 @@ p__ncols = 12
 p__nrows = 4
 p__disc = .9 # discount factor
 
-p__iter = 15
-p__plot_every = 5
-p__nplots = p__iter//p__plot_every
-
-p__q_learning_rate = .8
+p__iter = 21
+p__plot_at = [5, 10, 15, 20]
+p__nplots = len(p__plot_at)
