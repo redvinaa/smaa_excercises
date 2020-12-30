@@ -133,6 +133,7 @@ for i, j in enumerate(d__plot_at_iter):
 		label=f'Recursive LS after {j} samples', color='blue', s=s)
 	ax[i].legend(loc=loc)
 	ax[i].grid()
+plt.tight_layout()
 #  plt.savefig('../figures/ex_I_1_plots_2.pdf')
 plt.show()
 plt.close()
