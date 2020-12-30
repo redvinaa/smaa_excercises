@@ -70,7 +70,7 @@ V_LP = lambd.value
 scene = np.flip(V_LP.reshape(p__nrows, p__ncols), axis=0)
 plt.imshow(scene, cmap='Greys', norm=Normalize())
 #  plt.savefig('../figures/ex_III_1_plots_1.pdf')
-plt.show()
+#  plt.show()
 plt.close()
 
 ## }}}
@@ -100,7 +100,7 @@ for i in range(p__iter):
 		ax[idx, 0].set_title(f'Value function, iter: {i}')
                  
 		scene = np.flip(b__policy.reshape(p__nrows, p__ncols), axis=0)
-		ax[idx, 1].imshow(scene, cmap='Greys', norm=Normalize())
+		ax[idx, 1].imshow(scene, cmap='Greys', vmin=0, vmax=3)
 
 		ax[idx, 1].set_title(f'Policy, iter: {i}')
 		# after enough iterations, the non-greedy policy is equal to the greedy policy
@@ -109,7 +109,7 @@ for i in range(p__iter):
 
 plt.tight_layout()
 #  plt.savefig('../figures/ex_III_1_plots_1.pdf')
-plt.show()
+#  plt.show()
 plt.close()
 
 ## }}}
@@ -144,15 +144,15 @@ for i in range(p__iter):
 		ax[idx, 0].set_title(f'Value function, iter: {i}')
                  
 		scene = np.flip(policy.reshape(p__nrows, p__ncols), axis=0)
-		ax[idx, 1].imshow(scene, cmap='Greys', norm=Normalize())
+		ax[idx, 1].imshow(scene, cmap='Greys', vmin=0, vmax=3)
 		ax[idx, 1].set_title(f'Policy, iter: {i}')
 		# after enough iterations, the non-greedy policy is equal to the greedy policy
 
 		idx += 1
 
 plt.tight_layout()
-#  plt.savefig('../figures/ex_III_1_plots_2.pdf')
-plt.show()
+plt.savefig('../figures/ex_III_1_plots_2.pdf')
+#  plt.show()
 plt.close()
 
 ## }}}
