@@ -31,13 +31,7 @@ The equation for $\hat{\v{\theta}}$ can be reformulated in the following way:
 	\hat{\v{\theta}} = \underbrace{\left[\sum\limits_{i=1}^n{\v{\varphi}\,\v{\varphi}\T}\right]^{-1}}_{\v{\Psi}_n}\,
 	\underbrace{\sum\limits_{i=1}^n{y_{i}\,\v{\varphi}_{i} }}_{z_n}.
 \end{equation}
-Now we have an update rule for both $\v{\Psi}_n$ and $z_n$:
-\begin{equation}
-	\v{\Psi}_{n+1} = \brc{\v{\Psi} + \v{\varphi}_{n+1}\v{\varphi}_{n+1}\T}^{.1}
-\end{equation}
-\begin{equation}
-	z_{n+1} = z_n + \v{\varphi}_{n+1}\v{y}_{n+1}
-\end{equation}
+Now we have an update rule for both $\v{\Psi}_{n+1} = \brc{\v{\Psi} + \v{\varphi}_{n+1}\v{\varphi}_{n+1}\T}^{-1}$, and $z_{n+1} = z_n + \v{\varphi}_{n+1}\v{y}_{n+1}$.
 Both $\v{\Psi}_0$ and $z_0$ are set to zero. 
 Also, in the code $\v{\theta}_n$ is calculated only when plotted for speed.
 
@@ -61,25 +55,26 @@ zeros such that it has the shape of $d\times n$.
 
 The resulting plots are shown in figure \ref{fig:ex_I_1_plots_3}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{.45\textwidth}
+	\begin{subfigure}[b]{.43\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim={20mm, 2mm, 15mm, 10mm}, clip]{ex_I_1_plots_1}
+		\includegraphics[width=\textwidth, trim={10mm, 2mm, 15mm, 10mm}, clip]{ex_I_1_plots_1}
 		\caption{Least-squares estimate for thin $\v{\Phi}$}
 		\label{fig:ex_I_1_plots_1}
 	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.45\textwidth}
+	\begin{subfigure}[b]{.43\textwidth}
 		\centering
-		\includegraphics[width=.9\textwidth, trim={20mm, 2mm, 15mm, 10mm}]{ex_I_1_plots_2}
-		\caption{Recursive least-squares}
-		\label{fig:ex_I_1_plots_2}
+		\includegraphics[width=\textwidth, trim={10mm, 2mm, 15mm, 10mm}, clip]{ex_I_1_plots_3}
+		\caption{Least-norm estimate for fat $\v{\Phi}$}
+		\label{fig:ex_I_1_plots_3}
 	\end{subfigure}\\
 	\begin{subfigure}[b]{.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth, trim={20mm, 2mm, 15mm, 10mm}, clip]{ex_I_1_plots_3}
-		\caption{Least-norm estimate for fat $\v{\Phi}$}
-		\label{fig:ex_I_1_plots_3}
+		\vspace{6mm}
+		\includegraphics[width=\textwidth, trim={20mm, 2mm, 15mm, 10mm}]{ex_I_1_plots_2}
+		\caption{Recursive least-squares}
+		\label{fig:ex_I_1_plots_2}
 	\end{subfigure}
 	\caption{Experiments with ordinary least-squares}
 \end{figure}
@@ -89,20 +84,22 @@ The resulting plots are shown in figure \ref{fig:ex_I_1_plots_3}.
 %% Approximating auto-regressive series {{{
 \subsection{Approximating auto-regressive series}
 
+A recursive time-series is generated from the give equation: $y_t = a\,y_{t-1} + b\,y_{t-2} + \epsilon_t$.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.7\textwidth]{ex_I_2_plots_1}
-	\label{fig:ex_I_2_plots_1}
-	\caption{}
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim={5mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_1}
+		\caption{}
+		\label{fig:ex_I_2_plots_1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[b]{.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim={0mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_2}
+		\caption{}
+		\label{fig:ex_I_2_plots_2}
+	\end{subfigure}
 \end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.7\textwidth]{ex_I_2_plots_2}
-	\label{fig:ex_I_2_plots_2}
-	\caption{}
-\end{figure}
-
 
 %% }}}
