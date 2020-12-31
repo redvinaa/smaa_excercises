@@ -19,6 +19,9 @@ def SVD(Phi):
 def pseudoinverse(Phi):
 	U, S, V = SVD(Phi)
 
-	# Moore-Penrose pseudoinverse of S
-	S_inv = inv(S.T @ S) @ S.T
+	S_inv = np.zeros_like(Phi)
+	for i in range(Phi.shape[0]):
+		for j in range(Phi.shape[1]):
+			if S[i, j] != 0:
+				S_inv[i, j] = 1/S[i, j]
 	return V * S_inv * U.T
