@@ -85,21 +85,45 @@ The resulting plots are shown in figure \ref{fig:ex_I_1_plots_3}.
 \subsection{Approximating auto-regressive series}
 
 A recursive time-series is generated from the give equation: $y_t = a\,y_{t-1} + b\,y_{t-2} + \epsilon_t$.
+Let's calculate the least-squares estimate using $\v{\Phi}_{i=t} = \v{\varphi}_t = \mat{y_{t-1}, y_{t-2}}$,
+then $\hat{\v{\theta}} = \v{\Phi}^+\,\v{y}$.
+
+The time plots can be seen on figure \ref{fig:ex_I_2_plots_1}.
+
+Now let's calculate the inverse of the covariance matrix: $\v{\Gamma}_n = \frac{1}{n}\,\v{\Phi}\T\,\v{\Phi}$. Now define
+$\Delta\v{\theta} := (\v{\theta} - \hat{\v{\theta}}_n)$.
+The confidence ellipsoid is given by 
+\begin{equation}
+	\Delta\v{\theta}\T\v{\Gamma}_n\Delta\v{\theta}\leq\frac{q\,\hat{\sigma}_n^2}{n},
+\end{equation}
+where $q$ is calculated from the inverse of the cumulative $\chi^2$ distribution function given the $p$
+probabilities ($q = \fn{F}(p)_{\chi^2(d)}^{-1}$). This means that if the optimal $\v{\theta}^*$
+is at most $\Delta\v{\theta}$ distance from $\hat{\v{\theta}}$ with probability $p$.
+
+Now we assume that $\hat{\sigma}_n=1$. Then we have an equation that outputs an ellipse for a $p$ probability.
+Written out:
+\begin{equation}
+	\Delta\theta_1^2\,\Gamma_{11} + 2\,\Delta\theta_1\,\Delta\theta_2\,\Gamma_{12} + \Delta\theta_2^2\,\Gamma_{22} = q.
+\end{equation}
+
+For the plotting, this equation is transformed so that the axis distances and the rotation 
+angle is known with the function \verb|ellipse_transform|\cite{ellipse}.
 
 \begin{figure}[H]
 	\centering
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width=\textwidth, trim={5mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_1}
-		\caption{}
+		\caption{Time-series}
 		\label{fig:ex_I_2_plots_1}
 	\end{subfigure}\hfill
 	\begin{subfigure}[b]{.49\textwidth}
 		\centering
 		\includegraphics[width=\textwidth, trim={0mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_2}
-		\caption{}
+		\caption{Confidence ellipsoids}
 		\label{fig:ex_I_2_plots_2}
 	\end{subfigure}
+	\caption{Experiments with auto-regressive series}
 \end{figure}
 
 %% }}}

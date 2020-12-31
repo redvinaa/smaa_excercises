@@ -232,12 +232,24 @@ I_1_plots_1.pdf> <./figures/ex_I_1_plots_3.pdf> <./figures/ex_I_1_plots_2.pdf
 pdfTeX warning: pdflatex (file ./figures/ex_I_1_plots_2.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]) (./docs/II.tex [4 <./figures/ex_I_2_plots_1.pdf> <./figures/ex_I_2_plots_2.
-pdf>]) (./docs/III.tex [5])
+pdf>]) (./docs/III.tex [5]) (./misc/bib.tex [6]
+Underfull \hbox (badness 10000) in paragraph at lines 4--6
+\T1/pcr/m/n/10 html# : ~ : text = Applying % 20the % 20methods % 20of % 20 % EF
+ % BF % BD ,[] rotated % 20through %
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--6
+\T1/pcr/m/n/10 20an % 20angle % 20 % CE % B1 % 20 . &text = which % 20is % 20in
+ % 20the % 20form ,[] with % 20A % 20and %
+)
 
 Package caption Warning: Unused \captionsetup[table] on input line 16.
 See the caption package documentation for explanation.
 
-[6] (build/main.aux) )
+[7] (build/main.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
 (see the transcript file for additional information){/usr/share/texlive/texmf-d
 ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
@@ -248,11 +260,12 @@ m/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (7 pages, 307045 bytes).
+dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/
+ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on build/main.pdf (8 pages, 328684 bytes).
 Transcript written on build/main.log.
