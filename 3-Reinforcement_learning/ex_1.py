@@ -1,12 +1,10 @@
-# file: III_1/ex_III_1.py
-
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 import cvxpy as cp
-from cliffwalking_my import CliffWalkingEnv
+from cliffwalking import CliffWalkingEnv
 from time import sleep
-from ex_III_1_parameters import *
+from ex_1_param import *
 
 
 ## Misc {{{

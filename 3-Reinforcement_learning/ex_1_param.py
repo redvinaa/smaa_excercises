@@ -1,5 +1,3 @@
-# file: III_1/ex_III_1_parameters.py
-
 p__model_n = 12 # play this many episodes
 
 p__ncols = 12
