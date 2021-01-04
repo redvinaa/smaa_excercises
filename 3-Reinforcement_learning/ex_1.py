@@ -36,7 +36,6 @@ model = np.zeros(shape=(env.observation_space.n, env.action_space.n, 2))
 
 for i in range(p__model_n):
 	S = env.reset()
-	steps = 0
 	
 	done = False
 	while not done:
@@ -46,7 +45,6 @@ for i in range(p__model_n):
 		# env is not stochastic, don't need step size
 
 		S = S_
-		steps += 1
 
 print('Generated model')
 
@@ -64,6 +62,7 @@ prob = cp.Problem(obj, constr)
 prob.solve()
 
 V_LP = lambd.value
+np.save('LP_value_function.npy', V_LP)
 
 scene = np.flip(V_LP.reshape(p__nrows, p__ncols), axis=0)
 plt.imshow(scene, cmap='Greys', norm=Normalize())
@@ -74,6 +73,8 @@ plt.close()
 ## }}}
 
 
+
+env = CliffWalkingEnv()
 ## c) Value Iteration {{{
 
 V_VI      = np.zeros(shape=(env.observation_space.n))

@@ -2,181 +2,118 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
 import cvxpy as cp
-from cliffwalking_my import CliffWalkingEnv
+from cliffwalking import CliffWalkingEnv
 from time import sleep
 from ex_2_param import *
 
 
-## Misc {{{
-
-def value_to_policy(V):
-	policy = np.empty(shape=(env.observation_space.n,))
-	for S in range(env.observation_space.n):
-		policy[S] = np.argmax([V[S_next] for S_next in np.array(model[S, :, 1], dtype=int)])
-
-	return policy
-
-in2cm = 1/2.54
-
-## }}}
-
-
-## a) Generating model {{{
+## a) Setting up variables / functions {{{
 
 env = CliffWalkingEnv()
+V_LP = np.load('LP_value_function.npy') # optimal value-function
+V_LP[1:11] = np.zeros(10) # technically, these are not states
 
-# model should be a function like
-# f: (S, A) -> (R, S_)
-
-#      R  S_
-#   S  x  x
-#   A  x  x
-
-model = np.zeros(shape=(env.observation_space.n, env.action_space.n, 2))
-
-for i in range(p__model_n):
-	S = env.reset()
-	steps = 0
-	
-	done = False
-	while not done:
-		A = env.action_space.sample()
-		S_, R, done, _ = env.step(A)
-		model[S, A] = np.array([R, S_])
-		# env is not stochastic, don't need step size
-
-		S = S_
-		steps += 1
-
-print('Generated model')
-
-## }}}
-
-
-## b) Linear Programming {{{
-
-lambd = cp.Variable(env.observation_space.n)
-
-obj   = cp.Minimize(cp.sum(lambd))
-constr = [lambd[S] >= model[S, A, 0] + p__disc * lambd[int(model[S, A, 1])] for S in range(env.observation_space.n) for A in range(env.action_space.n)]
-
-prob = cp.Problem(obj, constr)
-prob.solve()
-
-V_LP = lambd.value
-
-scene = np.flip(V_LP.reshape(p__nrows, p__ncols), axis=0)
-plt.imshow(scene, cmap='Greys', norm=Normalize())
-#  plt.savefig('../figures/ex_III_1_plots_1.pdf')
+#  scene = np.flip(V_LP.reshape((p__nrows, p__ncols)), axis=0)
+#  plt.matshow(scene, cmap='Greys', norm=Normalize())
 #  plt.show()
-plt.close()
+
+def to_V(Q): # get V from Q
+	return np.max(Q, axis=1)
+
+def dist_V(Q): # how far a given V is from the optimal (V_LP)
+	return np.linalg.norm(V_LP - to_V(Q))
 
 ## }}}
 
 
-## c) Value Iteration {{{
+## a) Creating policies {{{
 
-V_VI      = np.zeros(shape=(env.observation_space.n))
-b__policy = np.empty(shape=(env.observation_space.n))
-dist_VI   = np.empty(shape=(p__iter))
+def policy_random(*args):
+	return env.action_space.sample()
 
-fig, ax = plt.subplots(ncols=2, nrows=p__nplots)
+def policy_e_greedy(S, Q):
+	ran = p__eps > np.random.uniform()
+	if ran:
+		return env.action_space.sample()
+	else:
+		return np.argmax(Q[S, :])
 
-idx = 0
-for i in range(p__iter):
-	for S in range(env.observation_space.n):
-		V_VI[S] = np.max([model[S, A, 0] + p__disc * V_VI[int(model[S, A, 1])] for A in range(env.action_space.n)])
-##                       ^^next immediate reward     ^^ value of next state
+def policiy_soft_max(S, Q, tau=p__tau):
+	assert(tau>0)
+	den = np.sum([np.exp(Q[S, a]/tau) for a in range(env.action_space.n)])
+	p = [np.exp(Q[S, a]/tau)/den for a in range(env.action_space.n)]
+	return np.random.choice([0, 1, 2, 3], p=p)
 
-	dist_VI[i] = np.linalg.norm(V_LP-V_VI)
-
-	if i in p__plot_at:
-		b__policy = value_to_policy(V_VI)
-
-		scene = np.flip(V_VI.reshape(p__nrows, p__ncols), axis=0)
-		ax[idx, 0].matshow(scene, cmap='Greys', norm=Normalize())
-		ax[idx, 0].set_title(f'Value function, iter: {i}')
-                 
-		scene = np.flip(b__policy.reshape(p__nrows, p__ncols), axis=0)
-		ax[idx, 1].imshow(scene, cmap='Greys', vmin=0, vmax=3)
-
-		ax[idx, 1].set_title(f'Policy, iter: {i}')
-		# after enough iterations, the non-greedy policy is equal to the greedy policy
-
-		idx += 1
-
-plt.tight_layout()
-#  plt.savefig('../figures/ex_III_1_plots_1.pdf')
-#  plt.show()
-plt.close()
+policies = [policy_random, policy_e_greedy, policiy_soft_max]
+pnames   = ['random',      'e-greedy',      'soft-max']
 
 ## }}}
 
 
-## d) Policy Iteration {{{
+## b) Testing policies {{{
 
-policy = np.random.choice([0, 1, 2, 3], size=env.observation_space.n)
-V_PI   = np.empty(shape=(env.observation_space.n))
-dist_PI   = np.empty(shape=(p__iter))
+X       = np.linspace(1, p__n, p__n)
+dists   = {}
+rewards = {}
 
-fig, ax = plt.subplots(ncols=2, nrows=p__nplots)
+# same process for all policies
+for policy, pname in zip(policies, pnames):
 
-idx = 0
-for i in range(p__iter):
+	dists[pname]   = np.empty((p__n,))
+	rewards[pname] = np.zeros((p__n,))
+	Q = np.zeros(shape=(env.observation_space.n, env.action_space.n))
 
-	for S in range(env.observation_space.n):
-		V_PI[S] = model[S, policy[S], 0] + p__disc * V_PI[int(model[S, policy[S], 1])]
-##                ^^ immediate reward                ^^ discounted value of next state
+	# iterating through p__n episodes
+	for it in range(p__n):
 
-	for S in range(env.observation_space.n):
-		policy[S] = np.argmax([model[S, A, 0] + \
-			p__disc * V_PI[int(model[S, A, 1])] for A in range(env.action_space.n)])
+		lr = 1 / (1 + it) # learning rate
+		
+		# playing one episode
+		S = env.reset()
+		done = False
+		while not done:
+			A = policy(S, Q)
+			S_, R, done, _ = env.step(A)
 
-	dist_PI[i] = np.linalg.norm(V_LP-V_PI)
+			rewards[pname][it] += R
 
-	if i in p__plot_at:
-		b__policy = value_to_policy(V_PI)
+			# updating Q
+			V_next = np.max([Q[S_, a] for a in range(env.action_space.n)])
+			Q[S, A] = (1 - lr) * Q[S, A] + lr * (R + p__disc * V_next)
 
-		scene = np.flip(V_PI.reshape(p__nrows, p__ncols), axis=0)
-		ax[idx, 0].imshow(scene, cmap='Greys', norm=Normalize())
-		ax[idx, 0].set_title(f'Value function, iter: {i}')
-                 
-		scene = np.flip(policy.reshape(p__nrows, p__ncols), axis=0)
-		ax[idx, 1].imshow(scene, cmap='Greys', vmin=0, vmax=3)
-		ax[idx, 1].set_title(f'Policy, iter: {i}')
-		# after enough iterations, the non-greedy policy is equal to the greedy policy
+			S = S_
 
-		idx += 1
+		dists[pname][it] = dist_V(Q)
 
-plt.tight_layout()
-plt.savefig('../figures/ex_III_1_plots_2.pdf')
-#  plt.show()
-plt.close()
+		if it in p__plot_at:
+			print(f'showing fig: pname = {pname}, it = {it}')
+			scene = np.flip(to_V(Q).reshape((p__nrows, p__ncols)), axis=0)
+			plt.matshow(scene, cmap='Greys', norm=Normalize())
+			plt.savefig(f'../figures/ex_III_2_plots_{pname}_{it}.pdf')
+			plt.show()
 
 ## }}}
 
 
-## e) Plots {{{
+## c) Plots {{{
 
-plt.plot(np.linspace(1, p__iter+1, p__iter), dist_VI, label='Value Iteration')
-plt.plot(np.linspace(1, p__iter+1, p__iter), dist_PI, label='Policy Iteration')
+for pname in dists:
+	plt.plot(X, dists[pname], label=pname)
+
 plt.legend()
 plt.grid()
-#  plt.savefig('../figures/ex_III_1_plots_3.pdf')
+plt.savefig(f'../figures/ex_III_2_plots_{pname}_dists.pdf')
 plt.show()
-plt.close()
+
+for pname in dists:
+	if pname == 'random':
+		plt.plot(X, rewards[pname]/100, label=pname+'/100', alpha=.4)
+	else:
+		plt.plot(X, rewards[pname], label=pname)
+
+plt.legend()
+plt.grid()
+plt.savefig(f'../figures/ex_III_2_plots_{pname}_rewards.pdf')
+plt.show()
 
 ## }}}
-
-## play an episode with policy
-#  policy = value_to_policy(V_VI)
-#  S = env.reset()
-#  done = False
-#  R_sum = 0
-#  while not done:
-#      A = policy[S]
-#      S, R, done, _ = env.step(A)
-#      R_sum += R
-#      print(f'action: {env.action_names[A]}, reward: {R}, total rewards: {R_sum}')
-#      env.render()
-#      sleep(.5)
