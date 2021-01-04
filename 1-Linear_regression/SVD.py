@@ -1,5 +1,3 @@
-# file: I_1/SVD.py
-
 import numpy as np
 from numpy.linalg import inv, eig
 

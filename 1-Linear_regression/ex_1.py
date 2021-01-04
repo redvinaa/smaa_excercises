@@ -1,12 +1,9 @@
-#! /usr/bin/env python3
-# file: I_1/ex_I_1.py
-
 import numpy as np
 from scipy.linalg import qr, inv
 import matplotlib.pyplot as plt
 from basis_functions import poly_basis, sin_basis, exp_basis, Phi_gen
 from SVD import pseudoinverse
-from ex_I_1_parameters import *
+from ex_1_param import *
 
 
 ## a) Sample generation {{{

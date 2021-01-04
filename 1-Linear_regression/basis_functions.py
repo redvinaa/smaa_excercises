@@ -1,4 +1,3 @@
-# file: I_1/basis_functions.py
 import numpy as np
 
 def poly_basis(x, d, sigma):

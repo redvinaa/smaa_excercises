@@ -1,6 +1,3 @@
-#! /usr/bin/env python3
-# file: I_2/ex_I_2.py
-
 import numpy as np
 from numpy.linalg import inv, det
 from scipy.stats import chi2
@@ -8,7 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 import sympy as sy
 from SVD import pseudoinverse
-from ex_I_2_parameters import *
+from ex_2_param import *
 
 
 ## Utility {{{
