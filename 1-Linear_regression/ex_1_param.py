@@ -1,5 +1,3 @@
-# file: I_1/ex_I_1_parameters.py
-
 # a)
 pa__n = 1000 # Sample size
 pa__c = 16 # Queried function parameter
