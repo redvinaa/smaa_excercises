@@ -1,6 +1,16 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1}Linear regression}{2}{section.1}
 \contentsline {subsection}{\numberline {1.1}Function approximation with least squares}{2}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Ordinary least-squares}{2}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Recursive least-squares}{2}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Least-norm problem}{3}{subsubsection.1.1.3}
 \contentsline {subsection}{\numberline {1.2}Approximating auto-regressive series}{4}{subsection.1.2}
 \contentsline {section}{\numberline {2}Kernel methods}{5}{section.2}
 \contentsline {section}{\numberline {3}Reinforcement learning}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}The environment}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Model based methods}{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Model generating}{6}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Linear programming}{6}{subsubsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.3}Value iteration}{6}{subsubsection.3.2.3}
+\contentsline {subsubsection}{\numberline {3.2.4}Policy iteration}{7}{subsubsection.3.2.4}
+\contentsline {subsection}{\numberline {3.3}Model-free methods}{7}{subsection.3.3}

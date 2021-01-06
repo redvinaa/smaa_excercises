@@ -4,7 +4,7 @@
 \subsection{Function approximation with least squares}
 
 
-\subsubsection*{Ordinary least-squares}
+\subsubsection{Ordinary least-squares}
 
 The best linear approximation of a function can be calculated using least-squares.
 
@@ -32,7 +32,7 @@ this method gives the same result as the previous one.
 
 The results are shown in figure \ref{fig:ex_I_1_plots_1}.
 
-\subsubsection*{Recursive least-squares}
+\subsubsection{Recursive least-squares}
 
 Next, more of the above described $(x, y)$ pairs is sampled and $\hat{\v{\theta}}_{n}$ calculated periodically using recursive least-squares. In the code, all of the samples are measured beforehand for simplicity.
 
@@ -48,7 +48,7 @@ Also, in the code $\hat{\v{\theta}}_n$ is calculated only when plotted for speed
 The resulting plots are shown in figure \ref{fig:ex_I_1_plots_2}.,
 taken at $n\in[25, 50, 75, 100]$.
 
-\subsubsection*{Least-norm problem}
+\subsubsection{Least-norm problem}
 
 Now let's make $d>n$, specifically $n=100$ and $d=200$, which makes $\v{\Phi}$ fat.
 We make the assumption that $\v{\Phi}$ is still full-rank.
