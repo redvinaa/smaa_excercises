@@ -78,9 +78,9 @@ V_LP = lambd.value
 
 np.save('LP_value_function.npy', V_LP)
 
-#  plt.matshow(V_to_scene(V_LP), cmap='Greys')
+plt.matshow(V_to_scene(V_LP), cmap='Greys')
 #  plt.savefig('../figures/ex_III_1_plots_LP.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 
 ## }}}
@@ -150,7 +150,7 @@ plt.plot(np.linspace(1, p__iter+1, p__iter), dist_PI, label='Policy Iteration')
 plt.legend()
 plt.grid()
 #  plt.savefig('../figures/ex_III_1_plots_dist.pdf')
-#  plt.show()
+plt.show()
 plt.close()
 
 ## }}}

@@ -1,4 +1,4 @@
-p__plot_at = [2, 5, 30]
+p__plot_at = [1, 2, 5, 10, 30]
 p__n = p__plot_at[-1]+1 # play this many episodes
 p__nplots = len(p__plot_at)
 

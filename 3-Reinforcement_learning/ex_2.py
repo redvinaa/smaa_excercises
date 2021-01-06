@@ -1,13 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import Normalize
-import cvxpy as cp
 from cliffwalking import CliffWalkingEnv
-from time import sleep
 from ex_2_param import *
 
 
-## a) Setting up variables / functions {{{
+## a) Misc {{{
 
 env = CliffWalkingEnv()
 V_LP = np.load('LP_value_function.npy') # optimal value-function
@@ -22,6 +20,16 @@ def to_V(Q): # get V from Q
 
 def dist_V(Q): # how far a given V is from the optimal (V_LP)
 	return np.linalg.norm(V_LP - to_V(Q))
+
+def V_to_scene(V): # place V values on the grid ("scene")
+	# because you can't stay on the cliff, those blocks
+	# are not states, so |V| < 4*12
+	scene      = np.zeros((p__ncols*p__nrows,))
+	scene[0]   = V[0]  # start
+	scene[11]  = V[1]  # goal
+	scene[12:] = V[2:] # other states
+	scene      = np.flip(scene.reshape((p__nrows, p__ncols)), axis=0)
+	return scene
 
 ## }}}
 
@@ -87,8 +95,7 @@ for policy, pname in zip(policies, pnames):
 
 		if it in p__plot_at:
 			print(f'showing fig: pname = {pname}, it = {it}')
-			scene = np.flip(to_V(Q).reshape((p__nrows, p__ncols)), axis=0)
-			plt.matshow(scene, cmap='Greys', norm=Normalize())
+			plt.matshow(V_to_scene(to_V(Q)), cmap='Greys', norm=Normalize())
 			plt.savefig(f'../figures/ex_III_2_plots_{pname}_{it}.pdf')
 			plt.show()
 
