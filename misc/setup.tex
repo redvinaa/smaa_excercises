@@ -13,6 +13,8 @@
 \let\stdsection\section
 \renewcommand\section{\newpage\stdsection}
 
+\setcounter{tocdepth}{2}
+
 \captionsetup[table]{font={stretch=1.2}}
 \captionsetup[figure]{font={stretch=1.2}}
 
@@ -48,6 +50,8 @@
 \def\@without#1{\def\svgwidth{\columnwidth} \import{./figures/}{#1.pdf_tex}}
 \makeatother
 
+\def\HS{\hspace{5mm}}
+\def\hs{\hspace{3mm}}
 \newcommand\fn[1]{\mathrm{#1}}
 \newcommand\inner[1]{\langle #1 \rangle}
 \renewcommand\v[1]{\boldsymbol{\mathrm{#1}}}
