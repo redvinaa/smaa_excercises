@@ -1,6 +1,3 @@
-#! /usr/bin/env python3
-# file: II_1/ex_II_1.py
-
 import numpy as np
 from scipy.linalg import qr, inv
 import cvxpy as cp

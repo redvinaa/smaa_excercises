@@ -1,6 +1,3 @@
-#! /usr/bin/env python3
-# file: II_2/ex_II_2.py
-
 import numpy as np
 from scipy.linalg import qr, inv
 import cvxpy as cp
@@ -139,6 +136,7 @@ plt.scatter(pts_b_x, pts_b_y, color='blue', alpha=.3, label='Class b')
 
 plt.legend(loc=loc)
 plt.grid()
+plt.savefig('../figures/ex_II_2_plots_1.pdf')
 plt.show()
 
 ## }}}
