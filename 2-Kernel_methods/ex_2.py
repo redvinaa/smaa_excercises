@@ -89,7 +89,7 @@ print(f'b = {b}')
 
 #  alpha_outer = cp.vstack([alpha*a for a in alpha])
 #  outer       = cp.multiply(alpha_outer, K_Y)
-#  obj         = cp.sum(alpha) - 1/2*eq
+#  obj         = cp.sum(alpha) - 1/2*e \rightarrowq
 #  obj         = cp.Maximize(obj)
 ## ^^ this is how it would be done if cvxpy wasn't a piece of shit
 
