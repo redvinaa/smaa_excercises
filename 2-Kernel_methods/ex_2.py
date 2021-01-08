@@ -1,7 +1,8 @@
 import numpy as np
-from scipy.linalg import qr, inv
+from scipy.optimize import minimize, Bounds, LinearConstraint
 import cvxpy as cp
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import cm
 from ex_2_param import *
 
 
@@ -12,12 +13,12 @@ a__class = np.random.choice([-1, 1], size=p__n)
 a__points = np.empty(shape=(p__n, 2))
 for i, c in enumerate(a__class):
 	if c == 1:
-		a__points[i] = p__cov_a @ np.random.standard_normal(size=2) + p__mean
+		a__points[i] = p__cov_a @ np.random.standard_normal(size=2)
 	else:
 		r     = p__R + np.random.standard_normal()*p__cov_b
 		theta = np.random.uniform(low=0, high=2*np.pi)
 
-		a__points[i] = np.array([r*np.cos(theta), r*np.sin(theta)]) + p__mean
+		a__points[i] = np.array([r*np.cos(theta), r*np.sin(theta)])
 
 ## }}}
 
@@ -40,7 +41,7 @@ def kernel(x, y, mode=p__mode, params=p__params):
 	else:
 		assert('sigma' in params)
 		sigma = params['sigma']
-		return np.exp(-np.linalg.norm(x-y, ord=2)/sigma**2)
+		return np.exp(-(np.linalg.norm(x-y)/sigma)**2)
 
 ## }}}
 
@@ -63,7 +64,6 @@ def fun(alpha):
 		for k in range(n) for m in range(n)])
 	return -eq
 
-from scipy.optimize import minimize, Bounds, LinearConstraint
 
 bounds = Bounds(np.zeros((n,)), np.full((n,), np.inf))
 constraints = LinearConstraint(Y, 0, 0)
@@ -73,17 +73,14 @@ if not res.success:
 	quit('ERROR: ' + res.message)
 
 alpha = res.x
-print(f'alpha: {alpha}')
 
 idx = np.argwhere(alpha!=0).flatten()[0]
-print(f'idx = {idx}')
-
-w = np.sum([a*y*x for a, y, x in zip(alpha, Y, X)], axis=0)
-print(f'w = {w}')
-
 x = X[idx]
 y = Y[idx]
+
+w = np.sum([a*y*x for a, y, x in zip(alpha, Y, X)], axis=0)
 b = y - kernel(w, x)
+b = 0
 
 print(f'b = {b}')
 
@@ -91,7 +88,7 @@ print(f'b = {b}')
 #  outer       = cp.multiply(alpha_outer, K_Y)
 #  obj         = cp.sum(alpha) - 1/2*eq
 #  obj         = cp.Maximize(obj)
-## ^^ this is how it would be done if cvxpy wasn't a piece of shit
+## ^^ this is how it would be done but this isn't DCP
 
 #  constr = [lambd >= alpha[k] for k in range(n)]
 #  constr = [alpha[k] >= 0 for k in range(n)]
@@ -106,6 +103,9 @@ print(f'b = {b}')
 #      print('DCPERROR')
 #  quit()
 
+def f(x, y):
+	x_vec = np.array([x, y])
+	return np.sum([alpha[k]*Y[k]*kernel(x_vec, X[k]) for k in range(p__n)]) + b
 
 ## }}}
 
@@ -114,6 +114,8 @@ print(f'b = {b}')
 
 s = 20 # marker size
 loc = 2 # legend location
+l=1.2
+extent = (-p__R*l, p__R*l, -p__R*l, p__R*l)
 
 pts_a_x = a__points[a__class== 1][:,0]
 pts_a_y = a__points[a__class== 1][:,1]
@@ -123,16 +125,15 @@ plt.scatter(pts_a_x, pts_a_y, label='Sample: class a', color='black')
 plt.scatter(pts_b_x, pts_b_y, label='Sample: class b', \
 	edgecolors='black', facecolors='none')
 
-n = 100
-X = np.random.uniform(-10, 20, size=2*n).reshape((-1, 2))
-Y = np.array([kernel(w, x) + b for x in X])
+m = p__n # resolution of image
+X_ = np.linspace(extent[0], extent[1], m)
+Z_ = np.array([np.array([f(x1, x2) for x1 in X_]) for x2 in X_])
 
-pts_a_x = X[Y>=0][:, 0]
-pts_a_y = X[Y>=0][:, 1]
-pts_b_x = X[Y<0][:, 0]
-pts_b_y = X[Y<0][:, 1]
-plt.scatter(pts_a_x, pts_a_y, color='red', alpha=.3, label='Class a')
-plt.scatter(pts_b_x, pts_b_y, color='blue', alpha=.3, label='Class b')
+ax = plt.gca()
+im = ax.matshow(Z_,cmap=cm.RdBu, extent=extent)
+cset = plt.contour(Z_,[-10, -1, 0, 1, 10],linewidths=2,colors='black', extent=extent)
+plt.clabel(cset,inline=True,fmt='%1.1f',fontsize=10)
+plt.colorbar(im)
 
 plt.legend(loc=loc)
 plt.grid()
