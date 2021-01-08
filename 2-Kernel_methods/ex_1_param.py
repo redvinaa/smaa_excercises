@@ -1,5 +1,3 @@
-# file: II_1/ex_II_1_parameters.py
-
 from numpy import array
 
 p__lambd = 1

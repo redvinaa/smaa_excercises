@@ -1,5 +1,3 @@
-# file: I_2/ex_II_2_parameters.py
-
 from numpy import array
 
 p__n = 30
