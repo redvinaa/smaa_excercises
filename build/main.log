@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  8 JAN 2021 11:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  8 JAN 2021 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1895,9 +1895,9 @@ res/ex_II_1_plots_2.pdf>]
 <./figures/ex_II_2_plots_1.pdf, id=529, 462.52798pt x 346.89601pt>
 File: ./figures/ex_II_2_plots_1.pdf Graphic file (type pdf)
 <use ./figures/ex_II_2_plots_1.pdf>
-Package pdftex.def Info: ./figures/ex_II_2_plots_1.pdf  used on input line 120.
+Package pdftex.def Info: ./figures/ex_II_2_plots_1.pdf  used on input line 118.
 
-(pdftex.def)             Requested size: 241.84843pt x 181.38737pt.
+(pdftex.def)             Requested size: 241.84843pt x 210.99147pt.
 ) (./docs/III.tex [7 <./figures/ex_II_2_plots_1.pdf>]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
@@ -1907,43 +1907,43 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10.
  [8]
 \figsize=\skip111
-<./figures/ex_III_1_plots_LP.pdf, id=581, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_LP.pdf, id=588, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_LP.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_LP.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_LP.pdf  used on input line 80
 .
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_VI_2.pdf, id=583, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_VI_2.pdf, id=590, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_VI_2.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_VI_2.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_VI_2.pdf  used on input line 
 89.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_VI_5.pdf, id=585, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_VI_5.pdf, id=592, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_VI_5.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_VI_5.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_VI_5.pdf  used on input line 
 95.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_VI_12.pdf, id=587, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_VI_12.pdf, id=594, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_VI_12.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_VI_12.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_VI_12.pdf  used on input line
  101.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_PI_2.pdf, id=589, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_PI_2.pdf, id=596, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_PI_2.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_PI_2.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_PI_2.pdf  used on input line 
 112.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_PI_5.pdf, id=591, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_PI_5.pdf, id=598, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_PI_5.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_PI_5.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_PI_5.pdf  used on input line 
 118.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_PI_12.pdf, id=593, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_PI_12.pdf, id=600, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_PI_12.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_PI_12.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_PI_12.pdf  used on input line
@@ -1953,74 +1953,74 @@ Package pdftex.def Info: ./figures/ex_III_1_plots_PI_12.pdf  used on input line
 gures/ex_III_1_plots_VI_5.pdf> <./figures/ex_III_1_plots_VI_12.pdf> <./figures/
 ex_III_1_plots_PI_2.pdf> <./figures/ex_III_1_plots_PI_5.pdf> <./figures/ex_III_
 1_plots_PI_12.pdf>]
-<./figures/ex_III_2_plots_random_2.pdf, id=723, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_random_2.pdf, id=730, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_random_2.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_random_2.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_random_2.pdf  used on input l
 ine 180.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_random_5.pdf, id=725, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_random_5.pdf, id=732, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_random_5.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_random_5.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_random_5.pdf  used on input l
 ine 186.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_random_30.pdf, id=727, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_random_30.pdf, id=734, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_random_30.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_random_30.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_random_30.pdf  used on input 
 line 192.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_e-greedy_2.pdf, id=729, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_e-greedy_2.pdf, id=736, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_e-greedy_2.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_e-greedy_2.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_e-greedy_2.pdf  used on input
  line 205.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_e-greedy_5.pdf, id=731, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_e-greedy_5.pdf, id=738, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_e-greedy_5.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_e-greedy_5.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_e-greedy_5.pdf  used on input
  line 211.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_e-greedy_30.pdf, id=733, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_e-greedy_30.pdf, id=740, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_e-greedy_30.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_e-greedy_30.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_e-greedy_30.pdf  used on inpu
 t line 217.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_soft-max_2.pdf, id=735, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_soft-max_2.pdf, id=742, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_soft-max_2.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_soft-max_2.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_soft-max_2.pdf  used on input
  line 230.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_soft-max_5.pdf, id=737, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_soft-max_5.pdf, id=744, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_soft-max_5.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_soft-max_5.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_soft-max_5.pdf  used on input
  line 236.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_2_plots_soft-max_30.pdf, id=739, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_2_plots_soft-max_30.pdf, id=746, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_soft-max_30.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_soft-max_30.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_soft-max_30.pdf  used on inpu
 t line 242.
 (pdftex.def)             Requested size: 120.92421pt x 40.16782pt.
-<./figures/ex_III_1_plots_dist.pdf, id=741, 462.52798pt x 346.89601pt>
+<./figures/ex_III_1_plots_dist.pdf, id=748, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_dist.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_dist.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_dist.pdf  used on input line 
 255.
 (pdftex.def)             Requested size: 154.78653pt x 116.09045pt.
-<./figures/ex_III_2_plots_soft-max_dists.pdf, id=742, 462.52798pt x 346.89601pt
+<./figures/ex_III_2_plots_soft-max_dists.pdf, id=749, 462.52798pt x 346.89601pt
 >
 File: ./figures/ex_III_2_plots_soft-max_dists.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_soft-max_dists.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_soft-max_dists.pdf  used on i
 nput line 261.
 (pdftex.def)             Requested size: 154.78653pt x 116.09045pt.
-<./figures/ex_III_2_plots_soft-max_rewards.pdf, id=743, 462.52798pt x 346.89601
+<./figures/ex_III_2_plots_soft-max_rewards.pdf, id=750, 462.52798pt x 346.89601
 pt>
 File: ./figures/ex_III_2_plots_soft-max_rewards.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_soft-max_rewards.pdf>
@@ -2085,10 +2085,10 @@ ist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (12 pages, 553754 bytes).
+Output written on build/main.pdf (12 pages, 564425 bytes).
 PDF statistics:
- 1062 PDF objects out of 1200 (max. 8388607)
- 457 compressed objects within 5 object streams
+ 1069 PDF objects out of 1200 (max. 8388607)
+ 460 compressed objects within 5 object streams
  59 named destinations out of 1000 (max. 500000)
- 371 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 377 words of extra memory for PDF output out of 10000 (max. 10000000)
 

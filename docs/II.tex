@@ -104,9 +104,7 @@ This poses a convex optimization problem, the dual of which is going to be solve
 \end{equation}
 
 This ensures sparsity, specifically, for every $\alpha_k\neq0$, $x_k$ is a support vector.
-
-Ebből valahogy $b^*$-t kéne még kiszámolni.
-%%TODO
+$b^*$ can be calculated from KKT.
 
 From this, the classifier function is the following:
 \begin{equation}
@@ -117,7 +115,7 @@ The dataset along with the classification boundaries is shown on figure \ref{fig
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.5\textwidth]{ex_II_2_plots_1}
+	\includegraphics[width=.5\textwidth, trim={2cm, 1cm, 2cm, 5mm}, clip]{ex_II_2_plots_1}
 	\caption{Nonlinear classification}
 	\label{fig:kernel-SVC}
 \end{figure}
