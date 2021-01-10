@@ -1,6 +1,3 @@
-#! /usr/bin/env python3
-# file: I_2/ex_I_2.py
-
 import numpy as np
 from numpy.linalg import inv, det
 from scipy.stats import chi2
@@ -8,13 +5,15 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Ellipse
 import sympy as sy
 from SVD import pseudoinverse
-from ex_I_2_parameters import *
+from ex_2_param import *
 
 
 ## Utility {{{
 
 def ellipse_transform(A, B, C, q):
 	a, b, alpha = sy.symbols('a, b, alpha')
+
+	# A * x**2 + 2*B * x*y + C * y**2 = q
 
 	eq1 = sy.cos(alpha)**2 / a**2 + sy.sin(alpha)**2 / b**2 - A/q
 	eq2 = sy.sin(alpha) * sy.cos(alpha) * (1/a**2 - 1/b**2) - B/q
@@ -59,6 +58,7 @@ for i in range(p__n):
 h_theta = inv(Phi.T @ Phi) @ Phi.T @ Y[2:]
 print(f'h_theta = {h_theta}')
 
+# Y_LS is \hat{\theta}_n
 Y_LS = np.empty(p__n)
 Y_LS[:2] = np.array([p__y0, p__y1])
 for i in range(2, p__n):
@@ -82,20 +82,23 @@ p_i = np.array([.9, .95, .98])
 q_i = np.array([chi2.cdf(p, df=df) for p in p_i])
 print(f'p_i: {p_i} -> q_i = {q_i}')
 
-sy_plots = None
+#  sy_plots = None
 ellipses = []
+ellipses_2 = []
 colo=['r', 'b', 'g']
-for i, q in enumerate(q_i):
+for i, (q, c) in enumerate(zip(q_i, colo)):
 	A = Gamma_n[0, 0]
-	B = Gamma_n[0, 1]
+	B = 2*Gamma_n[0, 1]
 	C = Gamma_n[1, 1]
 
-	a, b, alpha = ellipse_transform(A, B, C, q/p__n)
-	width = 2*a
-	height = 2*b
-	print(f'Ellipse{i}: {a}, {b}, {np.degrees(float(alpha))}')
-	ellipses.append(Ellipse((h_theta[0], h_theta[1]), width, height, alpha, \
-		fill=False, color=colo[i], label=f'$P={p_i[i]*100:.4f}%$'))
+	ellipses.append((A, B, C, q, c))
+
+	#  a, b, alpha = ellipse_transform(A, B, C, q/p__n)
+	#  width = 2*a
+	#  height = 2*b
+	#  print(f'Ellipse{i}: {a}, {b}, {np.degrees(float(alpha))}')
+	#  ellipses_2.append(Ellipse((h_theta[0], h_theta[1]), width, height, alpha, \
+	#      fill=False, color=c, label=f'$P={p_i[i]*100:.0f}\%$'))
 
 ## }}}
 
@@ -123,8 +126,26 @@ plt.close()
 plt.scatter([s_theta[0]], [s_theta[1]], color='black')
 ax  = plt.gca()
 
-for i, e in enumerate(ellipses):
-	ax.add_patch(e)
+for i, (A, B, C, q, color) in enumerate(ellipses):
+	bound = np.sqrt(q / (A - B**2/(4*C)))
+
+	no_points = 60
+	X = np.linspace(-bound, bound, no_points)
+	Y_p = np.empty((no_points,))
+	Y_n = np.empty((no_points,))
+
+	for j, x in enumerate(X):
+		a = 1
+		b = B/C * x
+		c = (A*x**2 - q) / C
+		Y_p[j] = (-b + np.sqrt(b**2 - 4*a*c)) / (2*a)
+		Y_n[j] = (-b - np.sqrt(b**2 - 4*a*c)) / (2*a)
+
+	ax.plot(X+h_theta[0], Y_p+h_theta[1], color=color, label=f'$P={p_i[i]*100:.0f}\%$')
+	ax.plot(X+h_theta[0], Y_n+h_theta[1], color=color)
+
+#  for e in ellipses_2:
+#      ax.add_patch(e)
 
 plt.xlabel('$\\hat{\\theta}_1$')
 plt.ylabel('$\\hat{\\theta}_2$')
