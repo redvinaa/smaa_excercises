@@ -79,7 +79,7 @@ V_LP = lambd.value
 np.save('LP_value_function.npy', V_LP)
 
 plt.matshow(V_to_scene(V_LP), cmap='Greys')
-#  plt.savefig('../figures/ex_III_1_plots_LP.pdf')
+plt.savefig('../figures/ex_III_1_plots_LP.pdf')
 plt.show()
 plt.close()
 
@@ -88,23 +88,23 @@ plt.close()
 
 ## c) Value Iteration {{{
 
-V_VI      = np.zeros(shape=(env.observation_space.n,))
-dist_VI   = np.empty(shape=(p__iter,))
+dist_VI   = np.empty((p__n_per_policy, p__iter,))
 
-for i in range(p__iter):
-	for S in range(env.observation_space.n):
-		if S == 1:
-			continue
-		V_VI[S] = np.max([model[S, A, 0] + p__disc * V_VI[int(model[S, A, 1])] \
-##                        ^^next immediate reward    ^^ value of next state
-			for A in range(env.action_space.n)])
+for sub_it in range(p__n_per_policy):
 
-	dist_VI[i] = np.linalg.norm(V_LP-V_VI)
+	V_VI      = np.zeros(shape=(env.observation_space.n,))
 
-	#  if i in p__plot_at:
-		#  plt.matshow(V_to_scene(V_VI), cmap='Greys', norm=Normalize())
-		#  plt.savefig(f'../figures/ex_III_1_plots_VI_{i}.pdf')
-		#  plt.show()
+	for i in range(p__iter):
+		for S in range(env.observation_space.n):
+			if S == 1:
+				continue
+			V_VI[S] = np.max([model[S, A, 0] + p__disc * V_VI[int(model[S, A, 1])] \
+	##                        ^^next immediate reward    ^^ value of next state
+				for A in range(env.action_space.n)])
+
+		dist_VI[sub_it, i] = np.linalg.norm(V_LP-V_VI)
+
+dist_VI = np.average(dist_VI, axis=0)
 
 plt.close()
 
@@ -113,30 +113,32 @@ plt.close()
 
 ## d) Policy Iteration {{{
 
-policy  = np.random.choice([0, 1, 2, 3], size=env.observation_space.n)
-V_PI    = np.empty((env.observation_space.n,))
-dist_PI = np.empty((p__iter,))
+dist_PI = np.empty((p__n_per_policy, p__iter,))
 
-for i in range(p__iter):
+for sub_it in range(p__n_per_policy):
 
-	for S in range(env.observation_space.n):
-		if S == 1:
-			continue
-		V_PI[S] = model[S, policy[S], 0] + p__disc * V_PI[int(model[S, policy[S], 1])]
-##                ^^ immediate reward                ^^ discounted value of next state
+	policy  = np.random.choice([0, 1, 2, 3], size=env.observation_space.n)
+	V_PI    = np.empty((env.observation_space.n,))
 
-	for S in range(env.observation_space.n):
-		if S == 1:
-			continue
-		policy[S] = np.argmax([model[S, A, 0] + \
-			p__disc * V_PI[int(model[S, A, 1])] for A in range(env.action_space.n)])
+	for i in range(p__iter):
 
-	dist_PI[i] = np.linalg.norm(V_LP-V_PI)
+		for S in range(env.observation_space.n):
+			if S == 1:
+				continue
+			V_PI[S] = model[S, policy[S], 0] + p__disc * V_PI[int(model[S, policy[S], 1])]
+	##                ^^ immediate reward                ^^ discounted value of next state
 
-	#  if i in p__plot_at:
-	#      plt.matshow(V_to_scene(V_PI), cmap='Greys', norm=Normalize())
-	#      plt.savefig(f'../figures/ex_III_1_plots_PI_{i}.pdf')
-	#      plt.show()
+		for S in range(env.observation_space.n):
+			if S == 1:
+				continue
+			policy[S] = np.argmax([model[S, A, 0] + \
+			##                     ^^ next reward
+				p__disc * V_PI[int(model[S, A, 1])] for A in range(env.action_space.n)])
+			##                 ^^ next state
+
+		dist_PI[sub_it, i] = np.linalg.norm(V_LP-V_PI)
+
+dist_PI = np.average(dist_PI, axis=0)
 
 plt.close()
 
@@ -149,7 +151,7 @@ plt.plot(np.linspace(1, p__iter+1, p__iter), dist_VI, label='Value Iteration')
 plt.plot(np.linspace(1, p__iter+1, p__iter), dist_PI, label='Policy Iteration')
 plt.legend()
 plt.grid()
-#  plt.savefig('../figures/ex_III_1_plots_dist.pdf')
+plt.savefig('../figures/ex_III_1_plots_dist.pdf')
 plt.show()
 plt.close()
 
