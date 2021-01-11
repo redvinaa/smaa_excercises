@@ -56,6 +56,12 @@ policy = policies[p__policy]
 ## }}}
 
 
+def polyak_fun(n):
+	return int(np.ceil(np.log(n+1)))
+	return n
+	return int(np.ceil(n/2))
+
+
 ## b) Testing policies {{{
 
 pname   = p__policy
@@ -75,11 +81,10 @@ for sub_it in range(p__n_per_set):
 		visits = np.zeros((env.observation_space.n, env.action_space.n), dtype=np.int)
 
 		if pol:
-			Q_pol  = np.zeros((pol, env.observation_space.n, env.action_space.n)) # save the last <pol> values of Q
+			Q_pol  = np.zeros((p__n, env.observation_space.n, env.action_space.n)) # save Q values
 
 		# iterating through p__n episodes
 		for it in range(p__n):
-			
 			# playing one episode
 			S = env.reset()
 			done = False
@@ -109,14 +114,16 @@ for sub_it in range(p__n_per_set):
 
 				S = S_
 			if pol:
-				Q_pol[it%pol] = Q
+				Q_pol[it] = Q
+
+				cw = polyak_fun(it) # current window
 
 				if it == 0:
 					dists[sub_it, idx_c, it] = dist_V(Q)
-				elif it < 5:
-					dists[sub_it, idx_c, it] = dist_V(np.average(Q_pol[:it], axis=0))
+				elif it < cw:
+					dists[sub_it, idx_c, it] = dist_V(np.average(Q_pol[:it+1], axis=0))
 				else:
-					dists[sub_it, idx_c, it] = dist_V(np.average(Q_pol, axis=0))
+					dists[sub_it, idx_c, it] = dist_V(np.average(Q_pol[it+1-cw:it+1], axis=0))
 			else:
 				dists[sub_it, idx_c, it] = dist_V(Q)
 
@@ -128,31 +135,28 @@ rewards = np.average(rewards, axis=0)
 
 ## c) Plots {{{
 
-#  fig, ax = plt.subplots(nrows=2)
-
-#  for i, (c1, c2, pol) in enumerate(zip(p__c1, p__c2, p__pol)):
-#      ax[0].plot(X, dists[i],   label=f'c1={c1}, c2={c2}, pol={pol}')
-#      ax[1].plot(X, rewards[i], label=f'c1={c1}, c2={c2}, pol={pol}')
-
-#  ax[0].grid()
-#  ax[0].legend()
-#  ax[0].set_title('Value function distance')
-#  #  ax[0].set_xscale('log')
-#  ax[1].set_title('Total rewards')
-#  ax[1].grid()
-#  ax[1].legend()
-
 for i, (c1, c2, pol) in enumerate(zip(p__c1, p__c2, p__pol)):
-	plt.plot(X, dists[i],   label=f'c1={c1}, c2={c2}, pol={pol}')
+	if i==0:
+		plt.plot(X, dists[i],   label=f'c1={c1}, c2={c2}, pol={pol}', color='black')
+	elif not pol:
+		plt.plot(X, dists[i],   label=f'c1={c1}, c2={c2}, pol={pol}', ls='dashed')
+	else:
+		plt.plot(X, dists[i],   label=f'c1={c1}, c2={c2}, pol={pol}')
 plt.grid()
 plt.legend()
 plt.savefig(f'../figures/ex_IV_1_plots_dists.pdf')
 plt.show()
 
 for i, (c1, c2, pol) in enumerate(zip(p__c1, p__c2, p__pol)):
-	plt.plot(X, rewards[i],   label=f'c1={c1}, c2={c2}, pol={pol}')
+	if i==0:
+		plt.plot(X, rewards[i],   label=f'c1={c1}, c2={c2}, pol={pol}', color='black')
+	elif not pol:
+		plt.plot(X, rewards[i],   label=f'c1={c1}, c2={c2}, pol={pol}', ls='dashed')
+	else:
+		plt.plot(X, rewards[i],   label=f'c1={c1}, c2={c2}, pol={pol}')
 plt.grid()
 plt.legend()
+plt.xlim([0, 50])
 plt.savefig(f'../figures/ex_IV_1_plots_rewards.pdf')
 plt.show()
 
