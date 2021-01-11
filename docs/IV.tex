@@ -28,22 +28,24 @@ This is done by defining
 	\widebar{\fn{Q}}_n = \frac{1}{\tau_n}\sum\limits_{t=n-\tau_n+1}^n\fn{Q}_t.
 \end{equation}
 Here, $\{\tau_n\}$ is the window width, such that $\tau_n\rightarrow\infty$ and $n-\tau_n\geq 0 $.
+As an example, $\tau_n = \operatorname{ceil}(\log(n))$ was used.
 
 The results are shown in figure \ref{fig:extension}.
+Figure \ref{fig:IV-rew}. has been cropped so that it is more understandable.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}{.49\textwidth}
+	\begin{subfigure}{.46\textwidth}
 		\centering
 		\includegraphics[width=\textwidth, trim={1cm, 0cm, 1cm, 1cm}, clip]{ex_IV_1_plots_dists}
 		\caption{Distances from optimal value-function}
 		\label{}
 	\end{subfigure}\hfill
-	\begin{subfigure}{.49\textwidth}
+	\begin{subfigure}{.46\textwidth}
 		\centering
 		\includegraphics[width=\textwidth, trim={9mm, 0cm, 1cm, 1cm}, clip]{ex_IV_1_plots_rewards}
 		\caption{Rewards at each iteration}
-		\label{}
+		\label{fig:IV-rew}
 	\end{subfigure}
 	\caption{Results of the extended Q-learning}
 	\label{fig:extension}

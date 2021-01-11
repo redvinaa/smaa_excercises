@@ -11,7 +11,7 @@ and the corresponding classification $y_i\in\{-1, 1\}$.
 
 Three classifiers are implemented.
 
-\subsubsection*{Soft Margin Support Vector Classification}
+\subsubsection{Soft Margin Support Vector Classification}
 
 % With the original SVC, we are looking for the parameters of the affine function
 % that best separates the two classes: $\sum\limits_{i=1}^ny_i\brc{w\T\,x_ib}=0$.
@@ -34,7 +34,7 @@ The problem can be solved via convex optimization, using the cvxpy python librar
 \end{split}
 \end{equation}
 
-\subsubsection*{Least Squares SVM}
+\subsubsection{Least Squares SVM}
 
 LS-SVM is the least squares reformulation of Vapnik's SVC.
 This too can be solved via convex optimization.
@@ -47,7 +47,7 @@ This too can be solved via convex optimization.
 \end{split}
 \end{equation}
 
-\subsubsection*{Nearest centroid classifier}
+\subsubsection{Nearest centroid classifier}
 
 With the NNC solution, the means of the classes are calculated.
 Now a new sample would be classified in the class whose mean

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  11 JAN 2021 16:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  11 JAN 2021 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1895,14 +1895,7 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 45.
 )
-(build/main.aux
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `sub@' multiply defined.
-
-)
+(build/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -2238,25 +2231,25 @@ ne 133.
 (pdftex.def)             Requested size: 217.66211pt x 169.69249pt.
 ) (./docs/IV.tex [10 <./figures/ex_III_2_plots_dists.pdf> <./figures/ex_III_2_p
 lots_rewards.pdf>]
-<./figures/ex_IV_1_plots_dists.pdf, id=719, 462.52798pt x 346.89601pt>
+<./figures/ex_IV_1_plots_dists.pdf, id=720, 462.52798pt x 346.89601pt>
 File: ./figures/ex_IV_1_plots_dists.pdf Graphic file (type pdf)
 <use ./figures/ex_IV_1_plots_dists.pdf>
 Package pdftex.def Info: ./figures/ex_IV_1_plots_dists.pdf  used on input line 
-38.
-(pdftex.def)             Requested size: 237.01411pt x 186.0772pt.
-<./figures/ex_IV_1_plots_rewards.pdf, id=721, 462.52798pt x 346.89601pt>
+40.
+(pdftex.def)             Requested size: 222.5038pt x 174.68272pt.
+<./figures/ex_IV_1_plots_rewards.pdf, id=722, 462.52798pt x 346.89601pt>
 File: ./figures/ex_IV_1_plots_rewards.pdf Graphic file (type pdf)
 <use ./figures/ex_IV_1_plots_rewards.pdf>
 Package pdftex.def Info: ./figures/ex_IV_1_plots_rewards.pdf  used on input lin
-e 44.
-(pdftex.def)             Requested size: 237.01411pt x 184.77982pt.
-) [11] (./misc/bib.tex [12 <./figures/ex_IV_1_plots_dists.pdf> <./figures/ex_IV
-_1_plots_rewards.pdf>])
+e 46.
+(pdftex.def)             Requested size: 222.5038pt x 173.46796pt.
+) (./misc/bib.tex [11 <./figures/ex_IV_1_plots_dists.pdf> <./figures/ex_IV_1_pl
+ots_rewards.pdf>])
 
 Package caption Warning: Unused \captionsetup[table] on input line 18.
 See the caption package documentation for explanation.
 
-[13]
+[12]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 19.
  (build/main.aux)
@@ -2266,15 +2259,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19.
  ) 
 Here is how much of TeX's memory you used:
- 37452 strings out of 492982
- 693048 string characters out of 6134897
+ 37453 strings out of 492982
+ 693093 string characters out of 6134897
  834812 words of memory out of 5000000
- 40351 multiletter control sequences out of 15000+600000
+ 40353 multiletter control sequences out of 15000+600000
  577920 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,22n,54p,10398b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2297,10 +2290,10 @@ f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (14 pages, 492860 bytes).
+Output written on build/main.pdf (13 pages, 491166 bytes).
 PDF statistics:
- 872 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
- 62 named destinations out of 1000 (max. 500000)
+ 881 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 61 named destinations out of 1000 (max. 500000)
  254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -201,14 +201,7 @@ zlibrarytopaths.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/mathabx/mathabx.dcl))
 (./misc/setup.tex
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty))
-(build/main.aux
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `sub@' multiply defined.
-
-) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
+(build/main.aux) (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd)
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -250,15 +243,15 @@ f
 pdfTeX warning: pdflatex (file ./figures/ex_III_1_plots_dist.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]) (./docs/IV.tex [10 <./figures/ex_III_2_plots_dists.pdf> <./figures/ex_III_2
-_plots_rewards.pdf>]) [11] (./misc/bib.tex [12 <./figures/ex_IV_1_plots_dists.p
-df> <./figures/ex_IV_1_plots_rewards.pdf>])
+_plots_rewards.pdf>]) (./misc/bib.tex [11 <./figures/ex_IV_1_plots_dists.pdf> <
+./figures/ex_IV_1_plots_rewards.pdf>])
 
 Package caption Warning: Unused \captionsetup[table] on input line 18.
 See the caption package documentation for explanation.
 
-[13] (build/main.aux)
+[12] (build/main.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  )
 (see the transcript file for additional information){/usr/share/texlive/texmf-d
@@ -281,5 +274,5 @@ fonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (14 pages, 492860 bytes).
+Output written on build/main.pdf (13 pages, 491166 bytes).
 Transcript written on build/main.log.
