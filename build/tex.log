@@ -234,27 +234,16 @@ ltiple pdfs with page group included in a single page
 >]) (./docs/II.tex [4 <./figures/ex_I_2_plots_1.pdf> <./figures/ex_I_2_plots_2.
 pdf>] [5] [6 <./figures/ex_II_1_plots_0.pdf> <./figures/ex_II_1_plots_1.pdf> <.
 /figures/ex_II_1_plots_2.pdf>]) (./docs/III.tex [7 <./figures/ex_II_2_plots_1.p
-df>] (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd) [8] [9 <./figur
-es/ex_III_1_plots_LP.pdf> <./figures/ex_III_1_plots_VI_2.pdf> <./figures/ex_III
-_1_plots_VI_5.pdf> <./figures/ex_III_1_plots_VI_12.pdf> <./figures/ex_III_1_plo
-ts_PI_2.pdf> <./figures/ex_III_1_plots_PI_5.pdf> <./figures/ex_III_1_plots_PI_1
-2.pdf>]) (./misc/bib.tex [10 <./figures/ex_III_2_plots_random_2.pdf> <./figures
-/ex_III_2_plots_random_5.pdf> <./figures/ex_III_2_plots_random_30.pdf> <./figur
-es/ex_III_2_plots_e-greedy_2.pdf> <./figures/ex_III_2_plots_e-greedy_5.pdf> <./
-figures/ex_III_2_plots_e-greedy_30.pdf> <./figures/ex_III_2_plots_soft-max_2.pd
-f> <./figures/ex_III_2_plots_soft-max_5.pdf> <./figures/ex_III_2_plots_soft-max
-_30.pdf> <./figures/ex_III_1_plots_dist.pdf
+df>] [8] [9 <./figures/ex_III_1_plots_LP.pdf> <./figures/ex_III_1_plots_dist.pd
+f
 
 pdfTeX warning: pdflatex (file ./figures/ex_III_1_plots_dist.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
-> <./figures/ex_III_2_plots_soft-max_dists.pdf
+>]) (./misc/bib.tex [10 <./figures/ex_III_2_plots_dists.pdf> <./figures/ex_III_
+2_plots_rewards.pdf
 
-pdfTeX warning: pdflatex (file ./figures/ex_III_2_plots_soft-max_dists.pdf): PD
-F inclusion: multiple pdfs with page group included in a single page
-> <./figures/ex_III_2_plots_soft-max_rewards.pdf
-
-pdfTeX warning: pdflatex (file ./figures/ex_III_2_plots_soft-max_rewards.pdf): 
-PDF inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file ./figures/ex_III_2_plots_rewards.pdf): PDF inclu
+sion: multiple pdfs with page group included in a single page
 >])
 
 Package caption Warning: Unused \captionsetup[table] on input line 18.
@@ -280,5 +269,5 @@ ts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucr
 r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (12 pages, 564425 bytes).
+Output written on build/main.pdf (12 pages, 475955 bytes).
 Transcript written on build/main.log.
