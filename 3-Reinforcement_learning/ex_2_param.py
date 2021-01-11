@@ -1,10 +1,9 @@
-p__plot_at = [1, 2, 5, 10, 30]
-p__n = p__plot_at[-1]+1 # play this many episodes
-p__nplots = len(p__plot_at)
+p__n = 50 # play this many episodes
+p__n_per_policy = 1 # average this many runs per policy
 
 p__ncols = 12
 p__nrows = 4
-p__disc = .9 # discount factor
+p__disc = 0.9 # discount factor
 
-p__eps = 0.1
-p__tau = 0.1 # Boltzmann temperature
+p__eps = 0.2
+p__tau = 20 # Boltzmann temperature
