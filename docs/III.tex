@@ -32,9 +32,9 @@ Let $\fn{V}$ be an arbitrary value-function.
 The optimal $\fn{V}^*$ is obtained by minimizing $\sum\fn{V}_S$, given
 \begin{equation}
 	\fn{V}_S\geq\fn{g}
-(S, A) + \beta\fn{V}_{S+1} \text{ and } \fn{V}_\text{goal}=0,
+(S, A) + \delta\,\fn{V}_{S+1} \text{ and } \fn{V}_\text{goal}=0,
 \end{equation}
-where $\beta$ is the discount factor, and $\fn{g}(S, A)$ is the immediate reward.
+where $\delta$ is the discount factor, and $\fn{g}(S, A)$ is the immediate reward.
 The optimization is done with the python library \verb|cvxpy|.
 
 The resulting optimal value-function can be seen on figure \ref{fig:LP}.
@@ -45,7 +45,7 @@ An iterative solution is using value iteration.
 Start with and arbitrary value-function (all zeros in this case),
 and repeatedly sweep through the state-space. For all the states
 \begin{equation}\label{eq:VI}
-	\fn{V}_S^{n+1} = \max\limits_{A\in\mathbb{A}}\brc{R + \beta\fn{V}_{S+1}^n},
+	\fn{V}_S^{n+1} = \max\limits_{A\in\mathbb{A}}\brc{R + \delta\,\fn{V}_{S+1}^n},
 \end{equation}
 where $(S,A)\Rightarrow R$ and $(S,A)\Rightarrow S+1$
 can be queried from the model.
@@ -59,7 +59,7 @@ This is done similarly to \ref{eq:VI}, only $A$ is not the one with the maximal 
 but the one given by the current policy.
 
 After this, we make the policy greedy with respect to the calculated value-function:
-$\fn{p}(S)=\underset{A\in\mathbb{A}}{\operatorname{argmax}}\brc{R + \beta\fn{V}_{S+1}}$.
+$\fn{p}(S)=\underset{A\in\mathbb{A}}{\operatorname{argmax}}\brc{R + \delta\,\fn{V}_{S+1}}$.
 
 The (euclidean) distances of both $\fn{V}_\text{VI}$ and $\fn{V}_\text{PI}$ from $\fn{V}^*$ are
 shown on figure \ref{fig:dist-1}.
@@ -84,12 +84,12 @@ shown on figure \ref{fig:dist-1}.
 %% }}}
 
 %% Model-free methods {{{
-\subsection{Model-free methods}
+\subsection{Model-free methods}\label{ssec:model-free}
 
 In this section, online Q-learning is going to be implemented.
 The update rule of Watkins' Q-learning is as follows:
 \begin{equation}
-	\fn{Q}_{n+1}(S,A)=(1-\gamma_n)\,Q_n(S, A) + \gamma_n\,(R + \beta\,\max\limits_{B\in\mathbb{A}}\fn{Q}_n(\widetilde{S},B)),
+	\fn{Q}_{n+1}(S,A)=(1-\gamma_n)\,Q_n(S, A) + \gamma_n\,(R + \delta\,\max\limits_{B\in\mathbb{A}}\fn{Q}_n(\widetilde{S},B)),
 \end{equation}
 where $\gamma_n=\frac{1}{n+1}$ is the learning rate at step $n$,
 and $\widetilde{S}$ is the next state. The speed of decay can be adjusted by setting
@@ -124,13 +124,13 @@ The sums of the rewards received are also shown in figure \ref{fig:rewards}.
 	\centering
 	\begin{subfigure}{.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{ex_III_2_plots_dists}
+		\includegraphics[width=\textwidth, trim={9mm, 0cm, 1cm, 1cm}, clip]{ex_III_2_plots_dists}
 		\caption{Model-free}
 		\label{fig:dist-2}
 	\end{subfigure}
 	\begin{subfigure}{.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{ex_III_2_plots_rewards}
+		\includegraphics[width=\textwidth, trim={9mm, 0cm, 1cm, 1cm}, clip]{ex_III_2_plots_rewards}
 		\caption{Rewards (model-free)}
 		\label{fig:rewards}
 	\end{subfigure}

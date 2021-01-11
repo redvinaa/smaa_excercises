@@ -16,3 +16,4 @@
 \contentsline {subsubsection}{\numberline {3.2.3}Value iteration}{8}{subsubsection.3.2.3}
 \contentsline {subsubsection}{\numberline {3.2.4}Policy iteration}{9}{subsubsection.3.2.4}
 \contentsline {subsection}{\numberline {3.3}Model-free methods}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}Stochastic approximation}{11}{section.4}
