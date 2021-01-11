@@ -6,7 +6,7 @@
 At first, we create three datasets, with different distances between
 the means of two classes, so that there is one with no overlap,
 one with heavy overlap and one semi-overlapping.
-Each dataset consists of the coordinates of the points $x_i\in\mathbb{R}^2$,
+Each dataset consists of the coordinates of the points $\v{x}_i\in\mathbb{R}^2$,
 and the corresponding classification $y_i\in\{-1, 1\}$.
 
 Three classifiers are implemented.
@@ -27,10 +27,10 @@ badly classified data points are penalized.
 The problem can be solved via convex optimization, using the cvxpy python library.
 \begin{equation}
 \begin{split}
-	&\underset{w,\,\epsilon\in\mathbb{R}^d,\,b\in\mathbb{R}}{\operatorname{minimize}}\HS
-		\frac{1}{2}\,\norm{w}^2 + \lambda\,\sum\epsilon\\
+	&\underset{\v{w},\,\epsilon\in\mathbb{R}^d,\,b\in\mathbb{R}}{\operatorname{minimize}}\HS
+		\frac{1}{2}\,\norm{\v{w}}^2 + \lambda\,\sum\epsilon\\
 	&\text{subject to}\HS
-		y_k\,\brc{w\T\,x_k + b}\geq1-\epsilon_k\hs\text{and}\hs\epsilon_k\geq0\HS\text{for}\hs k=1,\dots n
+		y_k\,\brc{\v{w}\T\,\v{x}_k + b}\geq1-\epsilon_k\hs\text{and}\hs\epsilon_k\geq0\HS\text{for}\hs k=1,\dots n
 \end{split}
 \end{equation}
 
@@ -41,9 +41,9 @@ This too can be solved via convex optimization.
 \begin{equation}
 \begin{split}
 	&\underset{w,\,\epsilon\in\mathbb{R}^d,\,b\in\mathbb{R}}{\operatorname{minimize}}\HS
-		\frac{1}{2}\,\norm{w}^2 + \lambda\,\sum\epsilon^2\\
+		\frac{1}{2}\,\norm{\v{w}}^2 + \lambda\,\sum\epsilon^2\\
 	&\text{subject to}\HS
-		y_k\,\brc{w\T\,x_k + b} = 1-\epsilon_k\HS\text{for}\hs k=1,\dots n
+		y_k\,\brc{\v{w}\T\,\v{x}_k + b} = 1-\epsilon_k\HS\text{for}\hs k=1,\dots n
 \end{split}
 \end{equation}
 
@@ -90,25 +90,27 @@ surrounds the other. For this to be solved via an SVC, the points need to be map
 to a Reproducing Kernel Hilbert Space, called the feature space.
 This is done with the Gaussian kernel:
 \begin{equation}
-	\fn{k}(x, y) = \exp\frac{-\norm{x-y}^2}{\sigma^2}.
+	\fn{k}(\v{x}, \v{y}) = \exp\frac{-\norm{\v{x}-\v{y}}^2}{\sigma^2}.
 \end{equation}
+Then we define matrix $\v{K}$ as $\v{K}_{ij} = \fn{k}(\v{x}_i, \v{x}_j)$.
 
 This poses a convex optimization problem, the dual of which is going to be solved:
 \begin{equation}
 \begin{split}
 	&\underset{\alpha\in\mathbb{R}^n}{\operatorname{maximize}}\HS
-		\sum\limits_{k=1}^n\alpha_k - \frac{1}{2}\,\sum\limits_{k=1}^n\sum\limits_{m=1}^n\alpha_k\,\alpha_m\,y_k\,y_m\,k(x_k, x_m)\\
+		% \sum\limits_{k=1}^n\alpha_k - \frac{1}{2}\,\sum\limits_{k=1}^n\sum\limits_{m=1}^n\alpha_k\,\alpha_m\,y_k\,y_m\,k(x_k, x_m)\\
+		\sum\limits_{k=1}^n\alpha_k - \frac{1}{2}\,(\v{\alpha}\odot\v{y})\T\v{K}(\v{\alpha}\odot\v{y})\\
 	&\text{subject to}\HS
-		\sum\limits_{k=1}^n\alpha_k\,y_k=0\hs\text{and}\hs\lambda\geq\alpha_k\geq0\HS\text{for}\hs k=1,\dots n
+		\sum\limits_{k=1}^n\alpha_k\,y_k=0\hs\text{and}\hs\lambda\geq\alpha_k\geq0\HS\text{for}\hs k=1,\dots n,
 \end{split}
 \end{equation}
-
+where $\odot$ indicates elementwise multiplication.
 This ensures sparsity, specifically, for every $\alpha_k\neq0$, $x_k$ is a support vector.
 $b^*$ can be calculated from KKT.
 
 From this, the classifier function is the following:
 \begin{equation}
-	\fn{f}(x) = \operatorname{sign}\left[\sum\limits_{k=1}^n\alpha_k^*\,y_k\fn{k}(x, x_k) + b^*\right]
+	\fn{f}(\v{x}) = \operatorname{sign}\left[\sum\limits_{k=1}^n\alpha_k^*\,y_k\fn{k}(\v{x}, \v{x}_k) + b^*\right]
 \end{equation}
 
 The dataset along with the classification boundaries is shown on figure \ref{fig:kernel-SVC}.

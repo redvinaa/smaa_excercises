@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  11 JAN 2021 14:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  11 JAN 2021 14:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1895,17 +1895,17 @@ res/ex_II_1_plots_2.pdf>]
 <./figures/ex_II_2_plots_1.pdf, id=530, 462.52798pt x 346.89601pt>
 File: ./figures/ex_II_2_plots_1.pdf Graphic file (type pdf)
 <use ./figures/ex_II_2_plots_1.pdf>
-Package pdftex.def Info: ./figures/ex_II_2_plots_1.pdf  used on input line 118.
+Package pdftex.def Info: ./figures/ex_II_2_plots_1.pdf  used on input line 120.
 
 (pdftex.def)             Requested size: 241.84843pt x 210.99147pt.
 ) (./docs/III.tex [7 <./figures/ex_II_2_plots_1.pdf>] [8]
-<./figures/ex_III_1_plots_dist.pdf, id=587, 462.52798pt x 346.89601pt>
+<./figures/ex_III_1_plots_dist.pdf, id=588, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_dist.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_dist.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_dist.pdf  used on input line 
 71.
 (pdftex.def)             Requested size: 217.66211pt x 163.24757pt.
-<./figures/ex_III_1_plots_LP.pdf, id=588, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_LP.pdf, id=589, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_LP.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_LP.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_LP.pdf  used on input line 77
@@ -1916,13 +1916,13 @@ Package pdftex.def Info: ./figures/ex_III_1_plots_LP.pdf  used on input line 77
 pdfTeX warning: pdflatex (file ./figures/ex_III_1_plots_dist.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]
-<./figures/ex_III_2_plots_dists.pdf, id=644, 462.52798pt x 346.89601pt>
+<./figures/ex_III_2_plots_dists.pdf, id=645, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_dists.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_dists.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_dists.pdf  used on input line
  127.
 (pdftex.def)             Requested size: 217.66211pt x 163.24757pt.
-<./figures/ex_III_2_plots_rewards.pdf, id=645, 462.52798pt x 346.89601pt>
+<./figures/ex_III_2_plots_rewards.pdf, id=646, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_rewards.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_rewards.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_rewards.pdf  used on input li
@@ -1955,7 +1955,7 @@ Here is how much of TeX's memory you used:
  39982 multiletter control sequences out of 15000+600000
  572688 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,19n,54p,10398b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,22n,54p,10398b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/
@@ -1974,9 +1974,9 @@ ist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (12 pages, 475955 bytes).
+Output written on build/main.pdf (12 pages, 469204 bytes).
 PDF statistics:
- 788 PDF objects out of 1000 (max. 8388607)
+ 789 PDF objects out of 1000 (max. 8388607)
  330 compressed objects within 4 object streams
  54 named destinations out of 1000 (max. 500000)
  212 words of extra memory for PDF output out of 10000 (max. 10000000)
