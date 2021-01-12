@@ -99,7 +99,7 @@ Let's calculate the least-squares estimate using $\v{\varphi}_t = \mat{y_{t-1}, 
 $\v{\Phi}=\mat{\v{\varphi}_i\dots\v{\varphi}_n}$.
 Then $\hat{\v{\theta}} = \v{\Phi}^+\,\v{y}$.
 
-The time plots can be seen on figure \ref{fig:ex_I_2_plots_1}.
+% The time plots can be seen on figure \ref{fig:ex_I_2_plots_1}.
 
 Let's calculate the inverse of the covariance matrix:s
 $\v{\Gamma}_n = \frac{1}{n}\,\v{\Phi}\T\,\v{\Phi}$.
@@ -120,24 +120,13 @@ Written out:
 	\Delta\theta_1^2\,\Gamma_{11} + 2\,\Delta\theta_1\,\Delta\theta_2\,\Gamma_{12} + \Delta\theta_2^2\,\Gamma_{22} = q.
 \end{equation}
 
-For the plotting, this equation is transformed so that the axis distances and the rotation 
-angle is known with the function \verb|ellipse_transform|\cite{ellipse}.
+The resulting confidence ellipsoids can be seen on figure \ref{fig:ex_I_1_plots_1}.
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}[b]{.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth, trim={5mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_1}
-		\caption{Time-series}
-		\label{fig:ex_I_2_plots_1}
-	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth, trim={0mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_2}
-		\caption{Confidence ellipsoids}
-		\label{fig:ex_I_2_plots_2}
-	\end{subfigure}
-	\caption{Experiments with auto-regressive series}
+	\includegraphics[width=.6\textwidth, trim={0mm, 2mm, 15mm, 10mm}, clip]{ex_I_2_plots_2}
+	\caption{Confidence ellipsoids}
+	\label{fig:ex_I_2_plots_2}
 \end{figure}
 
 %% }}}

@@ -9,11 +9,6 @@ from ex_2_param import *
 
 env = CliffWalkingEnv()
 V_LP = np.load('LP_value_function.npy') # optimal value-function
-V_LP[1:11] = np.zeros(10) # technically, these are not states
-
-#  scene = np.flip(V_LP.reshape((p__nrows, p__ncols)), axis=0)
-#  plt.matshow(scene, cmap='Greys', norm=Normalize())
-#  plt.show()
 
 def to_V(Q): # get V from Q
 	return np.max(Q, axis=1)
@@ -46,10 +41,10 @@ def policy_e_greedy(S, Q):
 	else:
 		return np.argmax(Q[S, :])
 
-def policiy_soft_max(S, Q, tau=p__tau):
-	assert(tau>0)
-	den = np.sum([np.exp(Q[S, a]/tau) for a in range(env.action_space.n)])
-	p = [np.exp(Q[S, a]/tau)/den for a in range(env.action_space.n)]
+def policiy_soft_max(S, Q):
+	assert(p__tau>0)
+	den = np.sum([np.exp(Q[S, a]/p__tau) for a in range(env.action_space.n)])
+	p = [np.exp(Q[S, a]/p__tau)/den for a in range(env.action_space.n)]
 	return np.random.choice([0, 1, 2, 3], p=p)
 
 policies = [policy_random, policy_e_greedy, policiy_soft_max]
@@ -66,38 +61,40 @@ rewards = {}
 
 # same process for all policies
 for policy, pname in zip(policies, pnames):
+	print(f'policy: {pname}')
 
-	dists[pname]   = np.empty((p__n,))
-	rewards[pname] = np.zeros((p__n,))
-	Q = np.zeros(shape=(env.observation_space.n, env.action_space.n))
+	dists[pname]   = np.zeros((p__n_per_policy, p__n,))
+	rewards[pname] = np.zeros((p__n_per_policy, p__n,))
 
-	# iterating through p__n episodes
-	for it in range(p__n):
+	# averaging <p__n_per_policy> runs
+	for sub_it in range(p__n_per_policy):
 
-		lr = 1 / (1 + it) # learning rate
-		
-		# playing one episode
-		S = env.reset()
-		done = False
-		while not done:
-			A = policy(S, Q)
-			S_, R, done, _ = env.step(A)
+		Q = np.zeros((env.observation_space.n, env.action_space.n,))
 
-			rewards[pname][it] += R
+		# iterating through p__n episodes
+		for it in range(p__n):
+			print(f'    it: {it}')
+			lr = 1 / (1 + 0.05*it) # learning rate
+			
+			# playing one episode
+			S = env.reset()
+			done = False
+			while not done:
+				A = policy(S, Q)
+				S_, R, done, _ = env.step(A)
 
-			# updating Q
-			V_next = np.max([Q[S_, a] for a in range(env.action_space.n)])
-			Q[S, A] = (1 - lr) * Q[S, A] + lr * (R + p__disc * V_next)
+				rewards[pname][sub_it, it] += R
 
-			S = S_
+				# updating Q
+				V_next = np.max([Q[S_, a] for a in range(env.action_space.n)])
+				Q[S, A] = (1 - lr) * Q[S, A] + lr * (R + p__disc * V_next)
 
-		dists[pname][it] = dist_V(Q)
+				S = S_
 
-		if it in p__plot_at:
-			print(f'showing fig: pname = {pname}, it = {it}')
-			plt.matshow(V_to_scene(to_V(Q)), cmap='Greys', norm=Normalize())
-			plt.savefig(f'../figures/ex_III_2_plots_{pname}_{it}.pdf')
-			plt.show()
+			dists[pname][sub_it, it] = dist_V(Q)
+
+	rewards[pname] = np.average(rewards[pname], axis=0)
+	dists[pname]   = np.average(dists[pname],   axis=0)
 
 ## }}}
 
@@ -109,7 +106,7 @@ for pname in dists:
 
 plt.legend()
 plt.grid()
-plt.savefig(f'../figures/ex_III_2_plots_{pname}_dists.pdf')
+plt.savefig(f'../figures/ex_III_2_plots_dists.pdf')
 plt.show()
 
 for pname in dists:
@@ -120,7 +117,7 @@ for pname in dists:
 
 plt.legend()
 plt.grid()
-plt.savefig(f'../figures/ex_III_2_plots_{pname}_rewards.pdf')
+plt.savefig(f'../figures/ex_III_2_plots_rewards.pdf')
 plt.show()
 
 ## }}}

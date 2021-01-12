@@ -7,6 +7,9 @@
 \contentsline {subsection}{\numberline {1.2}Approximating auto-regressive series}{4}{subsection.1.2}
 \contentsline {section}{\numberline {2}Kernel methods}{5}{section.2}
 \contentsline {subsection}{\numberline {2.1}Linear classification}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Soft Margin Support Vector Classification}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Least Squares SVM}{5}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Nearest centroid classifier}{5}{subsubsection.2.1.3}
 \contentsline {subsection}{\numberline {2.2}Nonlinear classification}{6}{subsection.2.2}
 \contentsline {section}{\numberline {3}Reinforcement learning}{8}{section.3}
 \contentsline {subsection}{\numberline {3.1}The environment}{8}{subsection.3.1}
@@ -16,3 +19,4 @@
 \contentsline {subsubsection}{\numberline {3.2.3}Value iteration}{8}{subsubsection.3.2.3}
 \contentsline {subsubsection}{\numberline {3.2.4}Policy iteration}{9}{subsubsection.3.2.4}
 \contentsline {subsection}{\numberline {3.3}Model-free methods}{9}{subsection.3.3}
+\contentsline {section}{\numberline {4}Stochastic approximation}{11}{section.4}
