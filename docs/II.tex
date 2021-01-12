@@ -114,10 +114,20 @@ From this, the classifier function is the following:
 \end{equation}
 
 The dataset along with the classification boundaries is shown on figure \ref{fig:kernel-SVC}.
+Both the classification boundaries and the underlying (smooth) function is shown.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=.5\textwidth, trim={2cm, 1cm, 2cm, 5mm}, clip]{ex_II_2_plots_1}
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim={2cm, 0cm, 2cm, 5mm}, clip]{ex_II_2_plots_1}
+		\caption{Classifier with taking the sign}
+	\end{subfigure}
+	\begin{subfigure}{.49\textwidth}
+		\centering
+		\includegraphics[width=\textwidth, trim={2cm, 0cm, 2cm, 5mm}, clip]{ex_II_2_plots_2}
+		\caption{Classifier without taking the sign}
+	\end{subfigure}
 	\caption{Nonlinear classification}
 	\label{fig:kernel-SVC}
 \end{figure}

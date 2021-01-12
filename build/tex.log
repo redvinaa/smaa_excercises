@@ -236,8 +236,9 @@ pdfTeX warning: pdflatex (file ./figures/ex_I_1_plots_2.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]) (./docs/II.tex [4 <./figures/ex_I_2_plots_2.pdf>] [5] [6 <./figures/ex_II_1
 _plots_0.pdf> <./figures/ex_II_1_plots_1.pdf> <./figures/ex_II_1_plots_2.pdf>])
- (./docs/III.tex [7 <./figures/ex_II_2_plots_1.pdf>] [8] [9 <./figures/ex_III_1
-_plots_LP.pdf> <./figures/ex_III_1_plots_dist.pdf
+ (./docs/III.tex [7 <./figures/ex_II_2_plots_1.pdf> <./figures/ex_II_2_plots_2.
+pdf>] [8] [9 <./figures/ex_III_1_plots_LP.pdf> <./figures/ex_III_1_plots_dist.p
+df
 
 pdfTeX warning: pdflatex (file ./figures/ex_III_1_plots_dist.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
@@ -269,5 +270,5 @@ fonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (13 pages, 475344 bytes).
+Output written on build/main.pdf (13 pages, 487801 bytes).
 Transcript written on build/main.log.
