@@ -78,31 +78,6 @@ for i, (q, c) in enumerate(zip(q_i, colo)):
 
 ## Plots and evaluation {{{
 
-s = 3. # marker size
-loc = 1 # legend location
-
-for i in range(p__n-2):
-	pt1 = Y[i]
-	pt2 = Y[i+1]
-	pt_pred = np.array([pt1, pt2]) @ h_theta
-	pt_opt  = np.array([pt1, pt2]) @ s_theta
-	if i == 0:
-		plt.plot(T[i:i+2], np.array([pt1, pt2]), color='red', label='data')
-		plt.plot(T[i+1:i+3], np.array([pt2, pt_pred]), color='blue', label='predicted')
-		plt.plot(T[i+1:i+3], np.array([pt2, pt_opt]),  color='green', label='optimal')
-	else:
-		plt.plot(T[i:i+2], np.array([pt1, pt2]), color='red')
-		plt.plot(T[i+1:i+3], np.array([pt2, pt_pred]), color='blue')
-		plt.plot(T[i+1:i+3], np.array([pt2, pt_opt]),  color='green')
-
-plt.legend(loc=loc)
-plt.xlabel('$\\Delta t$ Time step')
-plt.ylabel('$y_t$ values')
-plt.grid()
-plt.savefig('../figures/ex_I_2_plots_1.pdf')
-plt.show()
-plt.close()
-
 plt.scatter([s_theta[0]], [s_theta[1]], color='black',  marker='x', label='$\\theta^*$')
 plt.scatter([h_theta[0]], [h_theta[1]], color='purple', marker='x', label='$\\hat{\\theta}$')
 ax  = plt.gca()
