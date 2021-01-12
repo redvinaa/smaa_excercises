@@ -234,11 +234,10 @@ I_1_plots_1.pdf> <./figures/ex_I_1_plots_3.pdf> <./figures/ex_I_1_plots_2.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ex_I_1_plots_2.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
->]) (./docs/II.tex [4 <./figures/ex_I_2_plots_1.pdf> <./figures/ex_I_2_plots_2.
-pdf>] [5] [6 <./figures/ex_II_1_plots_0.pdf> <./figures/ex_II_1_plots_1.pdf> <.
-/figures/ex_II_1_plots_2.pdf>]) (./docs/III.tex [7 <./figures/ex_II_2_plots_1.p
-df>] [8] [9 <./figures/ex_III_1_plots_LP.pdf> <./figures/ex_III_1_plots_dist.pd
-f
+>]) (./docs/II.tex [4 <./figures/ex_I_2_plots_2.pdf>] [5] [6 <./figures/ex_II_1
+_plots_0.pdf> <./figures/ex_II_1_plots_1.pdf> <./figures/ex_II_1_plots_2.pdf>])
+ (./docs/III.tex [7 <./figures/ex_II_2_plots_1.pdf>] [8] [9 <./figures/ex_III_1
+_plots_LP.pdf> <./figures/ex_III_1_plots_dist.pdf
 
 pdfTeX warning: pdflatex (file ./figures/ex_III_1_plots_dist.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
@@ -249,11 +248,7 @@ _plots_rewards.pdf>]) (./misc/bib.tex [11 <./figures/ex_IV_1_plots_dists.pdf> <
 Package caption Warning: Unused \captionsetup[table] on input line 18.
 See the caption package documentation for explanation.
 
-[12] (build/main.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- )
+[12] (build/main.aux) )
 (see the transcript file for additional information){/usr/share/texlive/texmf-d
 ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
@@ -274,5 +269,5 @@ fonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (13 pages, 491166 bytes).
+Output written on build/main.pdf (13 pages, 475207 bytes).
 Transcript written on build/main.log.

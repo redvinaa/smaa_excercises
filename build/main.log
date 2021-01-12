@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  11 JAN 2021 19:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.6.3)  12 JAN 2021 12:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2164,49 +2164,43 @@ _I_1_plots_2.pdf
 pdfTeX warning: pdflatex (file ./figures/ex_I_1_plots_2.pdf): PDF inclusion: mu
 ltiple pdfs with page group included in a single page
 >]
-<./figures/ex_I_2_plots_1.pdf, id=261, 462.52798pt x 346.89601pt>
-File: ./figures/ex_I_2_plots_1.pdf Graphic file (type pdf)
-<use ./figures/ex_I_2_plots_1.pdf>
-Package pdftex.def Info: ./figures/ex_I_2_plots_1.pdf  used on input line 130.
-(pdftex.def)             Requested size: 237.01411pt x 182.75203pt.
-<./figures/ex_I_2_plots_2.pdf, id=263, 462.52798pt x 346.89601pt>
+<./figures/ex_I_2_plots_2.pdf, id=260, 462.52798pt x 346.89601pt>
 File: ./figures/ex_I_2_plots_2.pdf Graphic file (type pdf)
 <use ./figures/ex_I_2_plots_2.pdf>
-Package pdftex.def Info: ./figures/ex_I_2_plots_2.pdf  used on input line 136.
-(pdftex.def)             Requested size: 237.01411pt x 176.55292pt.
-) (./docs/II.tex [4 <./figures/ex_I_2_plots_1.pdf> <./figures/ex_I_2_plots_2.pd
-f>]
-<./figures/ex_II_1_plots_0.pdf, id=354, 1445.4pt x 722.7pt>
+Package pdftex.def Info: ./figures/ex_I_2_plots_2.pdf  used on input line 127.
+(pdftex.def)             Requested size: 290.22107pt x 216.19095pt.
+) (./docs/II.tex [4 <./figures/ex_I_2_plots_2.pdf>]
+<./figures/ex_II_1_plots_0.pdf, id=297, 1445.4pt x 722.7pt>
 File: ./figures/ex_II_1_plots_0.pdf Graphic file (type pdf)
 <use ./figures/ex_II_1_plots_0.pdf>
 Package pdftex.def Info: ./figures/ex_II_1_plots_0.pdf  used on input line 63.
 (pdftex.def)             Requested size: 483.69687pt x 123.2965pt.
-<./figures/ex_II_1_plots_1.pdf, id=356, 1445.4pt x 722.7pt>
+<./figures/ex_II_1_plots_1.pdf, id=299, 1445.4pt x 722.7pt>
 File: ./figures/ex_II_1_plots_1.pdf Graphic file (type pdf)
 <use ./figures/ex_II_1_plots_1.pdf>
 Package pdftex.def Info: ./figures/ex_II_1_plots_1.pdf  used on input line 68.
 (pdftex.def)             Requested size: 483.69687pt x 170.7182pt.
-<./figures/ex_II_1_plots_2.pdf, id=358, 1445.4pt x 722.7pt>
+<./figures/ex_II_1_plots_2.pdf, id=301, 1445.4pt x 722.7pt>
 File: ./figures/ex_II_1_plots_2.pdf Graphic file (type pdf)
 <use ./figures/ex_II_1_plots_2.pdf>
 Package pdftex.def Info: ./figures/ex_II_1_plots_2.pdf  used on input line 73.
 (pdftex.def)             Requested size: 483.69687pt x 170.7182pt.
  [5] [6 <./figures/ex_II_1_plots_0.pdf> <./figures/ex_II_1_plots_1.pdf> <./figu
 res/ex_II_1_plots_2.pdf>]
-<./figures/ex_II_2_plots_1.pdf, id=536, 462.52798pt x 346.89601pt>
+<./figures/ex_II_2_plots_1.pdf, id=479, 462.52798pt x 346.89601pt>
 File: ./figures/ex_II_2_plots_1.pdf Graphic file (type pdf)
 <use ./figures/ex_II_2_plots_1.pdf>
 Package pdftex.def Info: ./figures/ex_II_2_plots_1.pdf  used on input line 120.
 
 (pdftex.def)             Requested size: 241.84843pt x 210.99147pt.
 ) (./docs/III.tex [7 <./figures/ex_II_2_plots_1.pdf>] [8]
-<./figures/ex_III_1_plots_dist.pdf, id=594, 462.52798pt x 346.89601pt>
+<./figures/ex_III_1_plots_dist.pdf, id=537, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_dist.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_dist.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_dist.pdf  used on input line 
 71.
 (pdftex.def)             Requested size: 217.66211pt x 163.24757pt.
-<./figures/ex_III_1_plots_LP.pdf, id=595, 1040.68805pt x 346.89601pt>
+<./figures/ex_III_1_plots_LP.pdf, id=538, 1040.68805pt x 346.89601pt>
 File: ./figures/ex_III_1_plots_LP.pdf Graphic file (type pdf)
 <use ./figures/ex_III_1_plots_LP.pdf>
 Package pdftex.def Info: ./figures/ex_III_1_plots_LP.pdf  used on input line 77
@@ -2217,13 +2211,13 @@ Package pdftex.def Info: ./figures/ex_III_1_plots_LP.pdf  used on input line 77
 pdfTeX warning: pdflatex (file ./figures/ex_III_1_plots_dist.pdf): PDF inclusio
 n: multiple pdfs with page group included in a single page
 >]
-<./figures/ex_III_2_plots_dists.pdf, id=651, 462.52798pt x 346.89601pt>
+<./figures/ex_III_2_plots_dists.pdf, id=594, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_dists.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_dists.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_dists.pdf  used on input line
  127.
 (pdftex.def)             Requested size: 217.66211pt x 169.69249pt.
-<./figures/ex_III_2_plots_rewards.pdf, id=653, 462.52798pt x 346.89601pt>
+<./figures/ex_III_2_plots_rewards.pdf, id=596, 462.52798pt x 346.89601pt>
 File: ./figures/ex_III_2_plots_rewards.pdf Graphic file (type pdf)
 <use ./figures/ex_III_2_plots_rewards.pdf>
 Package pdftex.def Info: ./figures/ex_III_2_plots_rewards.pdf  used on input li
@@ -2231,13 +2225,13 @@ ne 133.
 (pdftex.def)             Requested size: 217.66211pt x 169.69249pt.
 ) (./docs/IV.tex [10 <./figures/ex_III_2_plots_dists.pdf> <./figures/ex_III_2_p
 lots_rewards.pdf>]
-<./figures/ex_IV_1_plots_dists.pdf, id=720, 462.52798pt x 346.89601pt>
+<./figures/ex_IV_1_plots_dists.pdf, id=663, 462.52798pt x 346.89601pt>
 File: ./figures/ex_IV_1_plots_dists.pdf Graphic file (type pdf)
 <use ./figures/ex_IV_1_plots_dists.pdf>
 Package pdftex.def Info: ./figures/ex_IV_1_plots_dists.pdf  used on input line 
 40.
 (pdftex.def)             Requested size: 222.5038pt x 174.68272pt.
-<./figures/ex_IV_1_plots_rewards.pdf, id=722, 462.52798pt x 346.89601pt>
+<./figures/ex_IV_1_plots_rewards.pdf, id=665, 462.52798pt x 346.89601pt>
 File: ./figures/ex_IV_1_plots_rewards.pdf Graphic file (type pdf)
 <use ./figures/ex_IV_1_plots_rewards.pdf>
 Package pdftex.def Info: ./figures/ex_IV_1_plots_rewards.pdf  used on input lin
@@ -2257,17 +2251,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 19.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 19.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 19.
  ) 
 Here is how much of TeX's memory you used:
- 37453 strings out of 492982
- 693093 string characters out of 6134897
+ 37443 strings out of 492982
+ 692831 string characters out of 6134897
  834812 words of memory out of 5000000
- 40353 multiletter control sequences out of 15000+600000
+ 40345 multiletter control sequences out of 15000+600000
  577920 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,22n,54p,10398b,750s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2290,10 +2280,10 @@ f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on build/main.pdf (13 pages, 491166 bytes).
+Output written on build/main.pdf (13 pages, 475207 bytes).
 PDF statistics:
- 881 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 61 named destinations out of 1000 (max. 500000)
- 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 822 PDF objects out of 1000 (max. 8388607)
+ 354 compressed objects within 4 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 243 words of extra memory for PDF output out of 10000 (max. 10000000)
 
